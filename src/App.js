@@ -11,7 +11,7 @@ const App = () => (
       {/*<img src={logo} className="App-logo" alt="logo" />*/}
       <p>
         PORTFOLIO/ miejsce na nagłówek i logo
-        </p>
+      </p>
       <a
         className="App-link"
         href="https://www.duraj-wnetrza.pl/"
@@ -19,7 +19,7 @@ const App = () => (
         rel="noopener noreferrer"
       >
         Strona główna
-        </a>
+      </a>
     </header>
     <body className="App-body">
       <PortfolioMain />
