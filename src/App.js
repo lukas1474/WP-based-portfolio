@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import logo from './logo.svg';
 import './App.scss';
 
 import PortfolioMain from './components/views/PortfolioMain/PortfolioMain';
@@ -8,7 +7,6 @@ import PortfolioMain from './components/views/PortfolioMain/PortfolioMain';
 const App = () => (
   <div className="App">
     <header className="App-header">
-      {/*<img src={logo} className="App-logo" alt="logo" />*/}
       <p>
         PORTFOLIO/ miejsce na nagłówek i logo
       </p>
@@ -21,9 +19,9 @@ const App = () => (
         Strona główna
       </a>
     </header>
-    <body className="App-body">
+    <div className="App-body">
       <PortfolioMain />
-    </body>
+    </div>
     <footer className="App-footer">
       2020
     </footer>

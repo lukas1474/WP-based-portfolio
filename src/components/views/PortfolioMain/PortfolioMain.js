@@ -1,6 +1,4 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
-// import logo from './logo.svg';
 import './PortfolioMain.scss';
 
 class PortfolioMain extends React.Component {
