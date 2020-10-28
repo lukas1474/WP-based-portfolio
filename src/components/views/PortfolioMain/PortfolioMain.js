@@ -16,7 +16,7 @@ class PortfolioMain extends React.Component {
     const { activeCategory } = this.state;
 
     return (
-      <div className="App">
+      <div className='App'>
         <div className='container'>
           <div className={styles.panelBar}>
             <div className={styles.menu}>
