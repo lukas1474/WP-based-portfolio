@@ -1,22 +1,22 @@
-@import "../../../styles/settings.scss";
+@import '../../../styles/settings.scss';
 
 
 .panelBar {
-    border: blue solid 1px; 
+    border: blue solid 1px;
     margin-bottom: 30px;
     position: relative;
 }
 
 .menu {
     text-align: center;
-    border: red solid 1px; 
+    border: red solid 1px;
 }
 
 ul {
     margin: 0;
     padding: 0;
     list-style: none;
-    border: red solid 1px; 
+    border: red solid 1px;
 }
 
 li {
