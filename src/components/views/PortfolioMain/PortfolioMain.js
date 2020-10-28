@@ -35,11 +35,10 @@ class PortfolioMain extends React.Component {
               </ul>
             </div>
           </div>
-        </div>
-        <h2>Lista projektów z kategoriami</h2>
-        <div>
-          <p>projekty</p>
-          <p>miejsce na linki projektów</p>
+          <div className='col-lg-3 col-md-4 col-6'>
+            <p>projekty - miejsce na komponent</p>
+            <p>miejsce na linki projektów</p>
+          </div>
         </div>
       </div>
     );
