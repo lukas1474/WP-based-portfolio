@@ -1,31 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './App.scss';
+import store from './redux/store'
+import { Provider } from 'react-redux';
 
-import PortfolioMain from './components/views/PortfolioMain/PortfolioMain';
+import PortfolioMain from './components/views/PortfolioMain/PortfolioMainContainer';
 
 const App = () => (
-  <div className="App">
-    <header className="App-header">
-      <p>
-        PORTFOLIO/ miejsce na nagłówek i logo
+  <Provider store={store}>
+    <div className='App'>
+      <header className='App-header'>
+        <p>
+          PORTFOLIO/ miejsce na nagłówek i logo
       </p>
-      <a
-        className="App-link"
-        href="https://www.duraj-wnetrza.pl/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Strona główna
+        <a
+          className='App-link'
+          href='https://www.duraj-wnetrza.pl/'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          Strona główna
       </a>
-    </header>
-    <div className="App-body">
-      <PortfolioMain />
-    </div>
-    <footer className="App-footer">
-      2020
+      </header>
+      <div className='App-body'>
+        <PortfolioMain />
+      </div>
+      <footer className='App-footer'>
+        2020
     </footer>
-  </div>
+    </div>
+  </Provider>
 );
 
 App.propTypes = {
