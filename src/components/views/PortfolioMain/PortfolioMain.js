@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './PortfolioMain.scss';
 import PropTypes from 'prop-types';
+import Projects from '../Projects/Projects';
 
 class PortfolioMain extends React.Component {
   state = {
@@ -35,9 +36,10 @@ class PortfolioMain extends React.Component {
               </ul>
             </div>
           </div>
-          <div className='col-lg-3 col-md-4 col-6'>
-            <p>projekty - miejsce na komponent</p>
-            <p>miejsce na linki projektów</p>
+          <div className='row'>
+            <div className=' col-lg-3 col-md-4 col-6'>
+              <Projects />
+            </div>
           </div>
         </div>
       </div>
