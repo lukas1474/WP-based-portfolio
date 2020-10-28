@@ -3,38 +3,35 @@ import styles from './PortfolioMain.scss';
 import PropTypes from 'prop-types';
 
 class PortfolioMain extends React.Component {
+  state = {
+    activeCategory: 'wszystkie'
+  };
+
   render() {
+
+    const {
+      categories,
+    } = this.props;
+
+    const { activeCategory } = this.state;
+
     return (
       <div className="App">
         <div className='container'>
           <div className={styles.panelBar}>
             <div className={styles.menu}>
               <ul>
-                <li>
-                  <p>
-                    Wszystkie
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Elewacja
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Salon
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    kuchnia
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Łazienka
-                  </p>
-                </li>
+                {categories.map(item => (
+                  <li key={item.id}>
+                    <a
+                      href='/#'
+                      className={
+                        item.id === activeCategory ? styles.active : undefined
+                      }>
+                      {item.name}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
