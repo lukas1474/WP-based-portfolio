@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './PortfolioMain.scss';
 import PropTypes from 'prop-types';
-import Projects from '../Projects/Projects';
+import Projects from '../Projects/ProjectsContainer';
 
 class PortfolioMain extends React.Component {
   state = {
@@ -12,6 +12,7 @@ class PortfolioMain extends React.Component {
 
     const {
       categories,
+      projects,
     } = this.props;
 
     const { activeCategory } = this.state;
@@ -36,10 +37,8 @@ class PortfolioMain extends React.Component {
               </ul>
             </div>
           </div>
-          <div className='row'>
-            <div className=' col-lg-3 col-md-4 col-6'>
-              <Projects />
-            </div>
+          <div className=' col-lg-3 col-md-4 col-6'>
+            <Projects />
           </div>
         </div>
       </div>
@@ -49,6 +48,26 @@ class PortfolioMain extends React.Component {
 
 PortfolioMain.propTypes = {
   children: PropTypes.node,
+  categories: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string,
+    })
+  ),
+  projects: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      title: PropTypes.string,
+      content: PropTypes.string,
+      date: PropTypes.string,
+      categories: PropTypes.array,
+    })
+  ),
+};
+
+PortfolioMain.defaultProps = {
+  categories: [],
+  projects: [],
 };
 
 export default PortfolioMain;
