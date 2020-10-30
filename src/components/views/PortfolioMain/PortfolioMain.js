@@ -17,7 +17,6 @@ class PortfolioMain extends React.Component {
 
     const { activeCategory } = this.state;
 
-
     return (
       <div className='App'>
         <div className='container'>
@@ -49,7 +48,7 @@ class PortfolioMain extends React.Component {
       </div>
     );
   }
-}
+};
 
 PortfolioMain.propTypes = {
   children: PropTypes.node,

@@ -11,7 +11,7 @@ const initialState = [
       rendered: '(...)'
     },
     date: '2019-12-10T20:36:42',
-    categories: [45, 40, 69, 37, 36],
+    categories: '',
   },
   {
     id: 5207,
