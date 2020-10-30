@@ -3,26 +3,21 @@ import styles from './Projects.scss';
 import PropTypes from 'prop-types';
 import logo from '../../../../src/logo.svg';
 
-class Projects extends React.Component {
+const Projects = ({ id, content, date, title }) => (
 
-  render() {
-    const {projects} = this.props;
-    return (
-      < div className={styles.root} >
-        <div className='container'>
-          <div>
-            <p>{projects.id}</p>
-            <h2>{projects.content}</h2>
-            <p>{projects.date}</p>
-            <p>PROJECTS COMPONENT  {projects.title}
-              <img src={logo} className='App-logo' />
-            </p>
-          </div>
-        </div>
-      </div >
-    )
-  }
-}
+  < div className={styles.root} >
+    <div className='container'>
+      <div>
+        <p>{id}</p>
+        <h2>{date}</h2>
+        <p className='title'> {title.rendered}
+          <img src={logo} className='App-logo' />
+        </p>
+      </div>
+    </div>
+  </div >
+
+);
 
 Projects.propTypes = {
   children: PropTypes.node,

@@ -12,10 +12,11 @@ class PortfolioMain extends React.Component {
 
     const {
       categories,
-      projects,
+      projects
     } = this.props;
 
     const { activeCategory } = this.state;
+
 
     return (
       <div className='App'>
@@ -37,8 +38,12 @@ class PortfolioMain extends React.Component {
               </ul>
             </div>
           </div>
-          <div className=' col-lg-3 col-md-4 col-6'>
-            <Projects />
+          <div className='row'>
+            {projects.map(item => (
+              <div key={item.id} className=' col-lg-3 col-md-4 col-6'>
+                <Projects {...item} />
+              </div>
+            ))}
           </div>
         </div>
       </div>
