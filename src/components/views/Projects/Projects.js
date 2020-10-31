@@ -3,7 +3,7 @@ import styles from './Projects.scss';
 import PropTypes from 'prop-types';
 import logo from '../../../../src/logo.svg';
 
-const Projects = ({ id, content, date, title }) => (
+const Projects = ({id, content, date, title}) => (
 
   < div className={styles.root} >
     <div className='container'>
