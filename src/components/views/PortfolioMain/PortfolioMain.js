@@ -5,22 +5,46 @@ import Projects from '../Projects/ProjectsContainer';
 
 class PortfolioMain extends React.Component {
   state = {
-    activeCategory: 'wszystkie'
+    activeCategory: 'wszystkie',
   };
+
+  handleCategoryChange(newCategory) {
+    this.setState({ activeCategory: newCategory });
+  }
+
+  // addClass(domElement, className) {
+  //   domElement.current.classList.add(className);
+  // }
+
+  // removeClass(domElement, className) {
+  //   domElement.current.classList.remove(className);
+  // }
+
+  // handleCategoryChangeFade(newCategory, event) {
+  //   if (event !== undefined) event.preventDefault();
+  //   this.removeClass(this.props.furnitureListRef, styles.fadeIn);
+  //   this.addClass(this.props.furnitureListRef, styles.fadeOut);
+
+  //   setTimeout(() => {
+  //     this.handleCategoryChange(newCategory);
+  //     this.addClass(this.props.furnitureListRef, styles.fadeIn);
+  //     this.removeClass(this.props.furnitureListRef, styles.fadeOut);
+  //   }, 1000);
+  // }
+
 
   render() {
 
-    const {
-      categories,
-      projects
-    } = this.props;
-
+    const {categories, projects} = this.props;
     const { activeCategory } = this.state;
 
+    // const thisPortfolioMain = this;
+
     return (
-      <div className='App'>
+      <div className={styles.root}>
         <div className='container'>
           <div className={styles.panelBar}>
+            <p>panel bar</p>
             <div className={styles.menu}>
               <ul>
                 {categories.map(item => (
@@ -29,7 +53,9 @@ class PortfolioMain extends React.Component {
                       href='/#'
                       className={
                         item.id === activeCategory ? styles.active : undefined
-                      }>
+                      }
+                      onClick={() => this.handleCategoryChange(item.id)}
+                    >
                       {item.name}
                     </a>
                   </li>

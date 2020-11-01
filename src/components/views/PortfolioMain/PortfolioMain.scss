@@ -1,9 +1,23 @@
 @import '../../../styles/settings.scss';
 
-.panelBar {
-  border: blue solid 1px;
+.root {
   margin-bottom: 30px;
-  position: relative;
+  background-color: grey;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+
+  .panelBar {
+    color: pink;
+    border: blue solid 1px;
+    margin-bottom: 30px;
+    position: relative;
+    background-color: pink;
+  }
 }
 
 .menu {
@@ -14,6 +28,21 @@ ul {
   margin: 0;
   padding: 0;
   list-style: none;
+
+  a {
+    color: white;
+    text-decoration: none;
+
+    &:hover,
+    &.active {
+      color: red;
+      text-decoration: none;
+    }
+
+    &.active {
+      color: pink;
+    }
+  }
 }
 
 li {
@@ -21,4 +50,3 @@ li {
   margin: 0 0.5rem;
   font-weight: 600;
 }
-
