@@ -8,16 +8,8 @@ class PortfolioMain extends React.Component {
     activeCategory: 69,
   };
 
-  addClass(domElement, className) {
-    domElement.current.classList.add(className);
-  }
-
-  removeClass(domElement, className) {
-    domElement.current.classList.remove(className);
-  }
-
   handleCategoryChange(newCategory, event) {
-    if (event !== undefined) event.preventDefault();
+    if (event !== undefined);
     this.setState({ activeCategory: newCategory });
   }
 
@@ -34,15 +26,14 @@ class PortfolioMain extends React.Component {
               <ul>
                 {categories.map(item => (
                   <li key={item.id}>
-                    <a
-                      href='/#'
+                    <button
                       className={
                         item.id === activeCategory ? styles.active : undefined
                       }
-                      onClick={event => this.handleCategoryChange(item.id, event)}
+                      onClick={() => this.handleCategoryChange(item.id)}
                     >
                       {item.name}
-                    </a>
+                    </button>
                   </li>
                 ))}
               </ul>
