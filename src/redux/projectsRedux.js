@@ -22,7 +22,7 @@ const initialState = [
       rendered: '(...)'
     },
     date: '2019-13-10T20:36:42',
-    categories: [45, 40, 69, 37, 36],
+    categories: 'łazienka',
   },
   {
     id: 5208,

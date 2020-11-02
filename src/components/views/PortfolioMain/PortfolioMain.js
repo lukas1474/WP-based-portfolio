@@ -48,8 +48,8 @@ class PortfolioMain extends React.Component {
               </ul>
             </div>
           </div>
-          <div className='row' ref={this.props.categoryListRef}>
-            {projects.filter(item => [item.categories] === activeCategory)
+          <div className='row'>
+            {projects.filter(item => item.categories === activeCategory)
             .map(item => (
               <div key={item.id} className=' col-lg-3 col-md-4 col-6'>
                 <Projects {...item} />
@@ -79,13 +79,11 @@ PortfolioMain.propTypes = {
       categories: PropTypes.array,
     })
   ),
-  categoryListRef: PropTypes.object,
 };
 
 PortfolioMain.defaultProps = {
   categories: [],
   projects: [],
-  categoryListRef: React.createRef(),
 };
 
 export default PortfolioMain;
