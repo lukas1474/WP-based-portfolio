@@ -2,11 +2,11 @@ export const getAll = ({ categories }) => categories;
 export const getCount = ({ categories }) => categories.length;
 
 const initialState = [
-  { id: 'wszystkie', name: 'Wszystkie' },
-  { id: 'elewacja', name: 'Elewacja' },
-  { id: 'salon', name: 'Salon' },
-  { id: 'kuchnia', name: 'Kuchnia' },
-  { id: 'łazienka', name: 'Łazienka' },
+  { id: 69, name: 'Wszystkie' },
+  { id: 45, name: 'Elewacja' },
+  { id: 40, name: 'Salon' },
+  { id: 37, name: 'Kuchnia' },
+  { id: 36, name: 'Łazienka' },
 ];
 
 export default function reducer(statePart = initialState, action = {}) {

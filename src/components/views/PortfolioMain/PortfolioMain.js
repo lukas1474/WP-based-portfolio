@@ -5,7 +5,7 @@ import Projects from '../Projects/ProjectsContainer';
 
 class PortfolioMain extends React.Component {
   state = {
-    activeCategory: 'wszystkie',
+    activeCategory: 69,
   };
 
   addClass(domElement, className) {
@@ -49,7 +49,7 @@ class PortfolioMain extends React.Component {
             </div>
           </div>
           <div className='row'>
-            {projects.filter(item => item.categories === activeCategory)
+            {projects.filter(item => item.categories.includes(activeCategory))
             .map(item => (
               <div key={item.id} className=' col-lg-3 col-md-4 col-6'>
                 <Projects {...item} />
