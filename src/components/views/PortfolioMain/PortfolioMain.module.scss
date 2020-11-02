@@ -1,7 +1,7 @@
 @import '../../../styles/settings.scss';
+@import '../../../styles/bootstrap.scss';
 
 .root {
-  margin-bottom: 30px;
   background-color: grey;
   min-height: 70vh;
   display: flex;
@@ -10,14 +10,14 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  text-align: center;
+}
 
-  .panelBar {
-    color: pink;
-    border: blue solid 1px;
-    margin-bottom: 30px;
-    position: relative;
-    background-color: pink;
-  }
+.panelBar {
+  color: grey;
+  margin-bottom: 30px;
+  position: relative;
+  background-color: grey;
 }
 
 .menu {
@@ -40,7 +40,7 @@ ul {
     }
 
     &.active {
-      color: pink;
+      color: red;
     }
   }
 }

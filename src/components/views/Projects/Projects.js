@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Projects.scss';
+import styles from './Projects.module.scss';
 import PropTypes from 'prop-types';
 import logo from '../../../../src/logo.svg';
 
@@ -10,8 +10,8 @@ const Projects = ({id, content, date, title}) => (
       <div>
         <p>{id}</p>
         <h2>{date}</h2>
-        <p className='title'> {title.rendered}
-          <img src={logo} className='App-logo' />
+        <p className={styles.title}> {title.rendered}
+          <img src={logo} className={styles.App-logo} />
         </p>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './PortfolioMain.scss';
+import styles from './PortfolioMain.module.scss';
 import PropTypes from 'prop-types';
 import Projects from '../Projects/ProjectsContainer';
 
@@ -12,33 +12,10 @@ class PortfolioMain extends React.Component {
     this.setState({ activeCategory: newCategory });
   }
 
-  // addClass(domElement, className) {
-  //   domElement.current.classList.add(className);
-  // }
-
-  // removeClass(domElement, className) {
-  //   domElement.current.classList.remove(className);
-  // }
-
-  // handleCategoryChangeFade(newCategory, event) {
-  //   if (event !== undefined) event.preventDefault();
-  //   this.removeClass(this.props.furnitureListRef, styles.fadeIn);
-  //   this.addClass(this.props.furnitureListRef, styles.fadeOut);
-
-  //   setTimeout(() => {
-  //     this.handleCategoryChange(newCategory);
-  //     this.addClass(this.props.furnitureListRef, styles.fadeIn);
-  //     this.removeClass(this.props.furnitureListRef, styles.fadeOut);
-  //   }, 1000);
-  // }
-
-
   render() {
 
     const {categories, projects} = this.props;
     const { activeCategory } = this.state;
-
-    // const thisPortfolioMain = this;
 
     return (
       <div className={styles.root}>
