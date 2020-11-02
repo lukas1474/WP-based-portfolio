@@ -1,44 +1,47 @@
 import React from 'react';
-import styles from './PortfolioMain.scss';
+import styles from './PortfolioMain.module.scss';
 import PropTypes from 'prop-types';
 import Projects from '../Projects/ProjectsContainer';
 
 class PortfolioMain extends React.Component {
   state = {
-    activeCategory: 'wszystkie'
+    activeCategory: 69,
   };
+
+  handleCategoryChange(newCategory, event) {
+    if (event !== undefined);
+    this.setState({ activeCategory: newCategory });
+  }
 
   render() {
 
-    const {
-      categories,
-      projects
-    } = this.props;
-
+    const {categories, projects} = this.props;
     const { activeCategory } = this.state;
 
     return (
-      <div className='App'>
+      <div className={styles.root}>
         <div className='container'>
           <div className={styles.panelBar}>
             <div className={styles.menu}>
               <ul>
                 {categories.map(item => (
                   <li key={item.id}>
-                    <a
-                      href='/#'
+                    <button
                       className={
                         item.id === activeCategory ? styles.active : undefined
-                      }>
+                      }
+                      onClick={() => this.handleCategoryChange(item.id)}
+                    >
                       {item.name}
-                    </a>
+                    </button>
                   </li>
                 ))}
               </ul>
             </div>
           </div>
           <div className='row'>
-            {projects.map(item => (
+            {projects.filter(item => item.categories.includes(activeCategory))
+            .map(item => (
               <div key={item.id} className=' col-lg-3 col-md-4 col-6'>
                 <Projects {...item} />
               </div>

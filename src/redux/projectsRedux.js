@@ -11,7 +11,7 @@ const initialState = [
       rendered: '(...)'
     },
     date: '2019-12-10T20:36:42',
-    categories: '',
+    categories: [69, 37, 36],
   },
   {
     id: 5207,
@@ -22,7 +22,7 @@ const initialState = [
       rendered: '(...)'
     },
     date: '2019-13-10T20:36:42',
-    categories: [45, 40, 69, 37, 36],
+    categories: [45, 69, 37, 36],
   },
   {
     id: 5208,
@@ -33,7 +33,7 @@ const initialState = [
       rendered: '(...)'
     },
     date: '2019-14-10T20:36:42',
-    categories: [45, 40, 69, 37, 36],
+    categories: [69, 37, 40],
   },
   {
     id: 5209,
@@ -44,7 +44,7 @@ const initialState = [
       rendered: '(...)'
     },
     date: '2019-12-10T20:36:42',
-    categories: [45, 40, 69, 37, 36],
+    categories: [69, 36],
   },
 ];
 
