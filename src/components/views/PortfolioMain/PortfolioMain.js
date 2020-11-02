@@ -39,7 +39,7 @@ class PortfolioMain extends React.Component {
                       className={
                         item.id === activeCategory ? styles.active : undefined
                       }
-                      onClick={() => this.handleCategoryChange(item.id)}
+                      onClick={event => this.handleCategoryChange(item.id, event)}
                     >
                       {item.name}
                     </a>
@@ -48,8 +48,9 @@ class PortfolioMain extends React.Component {
               </ul>
             </div>
           </div>
-          <div className='row'>
-            {projects.map(item => (
+          <div className='row' ref={this.props.categoryListRef}>
+            {projects.filter(item => [item.categories] === activeCategory)
+            .map(item => (
               <div key={item.id} className=' col-lg-3 col-md-4 col-6'>
                 <Projects {...item} />
               </div>
@@ -78,11 +79,13 @@ PortfolioMain.propTypes = {
       categories: PropTypes.array,
     })
   ),
+  categoryListRef: PropTypes.object,
 };
 
 PortfolioMain.defaultProps = {
   categories: [],
   projects: [],
+  categoryListRef: React.createRef(),
 };
 
 export default PortfolioMain;
