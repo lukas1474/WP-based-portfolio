@@ -8,7 +8,16 @@ class PortfolioMain extends React.Component {
     activeCategory: 'wszystkie',
   };
 
-  handleCategoryChange(newCategory) {
+  addClass(domElement, className) {
+    domElement.current.classList.add(className);
+  }
+
+  removeClass(domElement, className) {
+    domElement.current.classList.remove(className);
+  }
+
+  handleCategoryChange(newCategory, event) {
+    if (event !== undefined) event.preventDefault();
     this.setState({ activeCategory: newCategory });
   }
 
@@ -21,7 +30,6 @@ class PortfolioMain extends React.Component {
       <div className={styles.root}>
         <div className='container'>
           <div className={styles.panelBar}>
-            <p>panel bar</p>
             <div className={styles.menu}>
               <ul>
                 {categories.map(item => (
