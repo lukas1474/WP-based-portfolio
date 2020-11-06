@@ -1,31 +1,23 @@
 import React from 'react';
 import styles from './Projects.module.scss';
 import PropTypes from 'prop-types';
-import logo from '../../../../src/logo.svg';
 import { Link } from 'react-router-dom';
 
-const Projects = ({ id, content, date, title }) => (
-
+const Projects = ({ id, image, date, title }) => (
   < div className={styles.root} >
     <div className='container'>
       <div>
-        <Link to={`/project/${id}`}>
-          <p>{id}</p>
-          <h2>{date}</h2>
-
+        <Link to={`/project/${id}`} className={styles.link}>
+          <h2 className={styles.id}>{id}</h2>
+          <p className={styles.date}>{date}</p>
           <p className={styles.title}>
-
             {title.rendered}
-            <img href={`/project/${id}`} src={logo} className={styles.App - logo} />
+            <img src={image} className={styles.logo} />
           </p>
-          <button href={`/project/${id}`}>
-            kliknij
-          </button>
         </Link>
       </div>
     </div>
   </div >
-
 );
 
 Projects.propTypes = {
@@ -35,6 +27,8 @@ Projects.propTypes = {
   content: PropTypes.string,
   date: PropTypes.string,
   categories: PropTypes.array,
+  image: PropTypes.node,
+  initialState: PropTypes.node,
 };
 
 export default Projects;

@@ -15,4 +15,11 @@
 
 .link {
   color: #61dafb;
+  text-decoration: none;
+
+  &:hover,
+  &.active {
+    color: #61dafb;
+    text-decoration: none;
+  }
 }

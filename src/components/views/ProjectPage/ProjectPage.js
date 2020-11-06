@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ProjectPage.module.scss';
 import logo from '../../../../src/logo.svg';
+import { Link } from 'react-router-dom';
 
 class ProjectPage extends React.Component {
 
@@ -13,6 +14,9 @@ class ProjectPage extends React.Component {
       <div className={styles.root}>
         <div className='container'>
           <div className={styles.panelBar}>
+            <Link to={`/`} className={styles.link}>
+              <button>  Powrót </button>
+            </Link>
             <h2>{id}</h2>
             <p>{title}</p>
           </div>
