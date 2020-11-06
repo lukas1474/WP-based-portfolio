@@ -10,6 +10,7 @@ import './styles/bootstrap.scss';
 
 import PortfolioMain from './components/views/PortfolioMain/PortfolioMainContainer';
 import MainLayout from './components/layout/MainLayout/MainLayout';
+import ProjectPage from './components/views/ProjectPage/ProjectPageContainer';
 
 
 const App = () => (
@@ -17,7 +18,8 @@ const App = () => (
     <BrowserRouter>
       <MainLayout>
         <Switch>
-          <Route exact path={'/'} component={PortfolioMain} />
+          <Route exact path='/' component={PortfolioMain} />
+          <Route exact path='/project/:projectId' component={ProjectPage} />
         </Switch>
       </MainLayout>
     </BrowserRouter>
