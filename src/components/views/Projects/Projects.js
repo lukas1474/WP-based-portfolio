@@ -3,7 +3,7 @@ import styles from './Projects.module.scss';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const Projects = ({ id, image, date, title }) => (
+const Projects = ({ id, image, date, title, choseCategory }) => (
   < div className={styles.root} >
     <div className='container'>
       <div>
@@ -15,6 +15,7 @@ const Projects = ({ id, image, date, title }) => (
             <img src={image} className={styles.logo} />
           </p>
         </Link>
+        <p>{choseCategory}</p>
       </div>
     </div>
   </div >

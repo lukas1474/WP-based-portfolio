@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './ProjectPage.module.scss';
 import logo from '../../../../src/logo.svg';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux'
 import Projects from '../Projects/Projects';
 
 class ProjectPage extends React.Component {
@@ -13,7 +14,7 @@ class ProjectPage extends React.Component {
 
   render() {
 
-    const { id, title, image } = this.props;
+    const { id, title, image, choseCategory } = this.props;
     // const {activeCategory} = this.state;
 
     return (
@@ -23,6 +24,7 @@ class ProjectPage extends React.Component {
             <Link to={`/`} className={styles.link}>
               <button> {'<-'} Powrót </button>
             </Link>
+            <p>{choseCategory}</p>
             {/* <p>{activeCategory}</p> */}
             <h2>{id}</h2>
             <p>{title}</p>
@@ -46,6 +48,7 @@ ProjectPage.propTypes = {
   children: PropTypes.node,
   id: PropTypes.string,
   title: PropTypes.number,
+  activeCategory: PropTypes.string,
 };
 
 

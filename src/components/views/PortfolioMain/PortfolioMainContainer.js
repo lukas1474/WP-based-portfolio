@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { getAll } from '../../../redux/categoriesRedux';
-import { getAllProjects } from '../../../redux/projectsRedux';
+import { getAllProjects} from '../../../redux/projectsRedux';
 
 import PortfolioMain from './PortfolioMain';
 
