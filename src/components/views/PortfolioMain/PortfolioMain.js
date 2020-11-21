@@ -2,15 +2,8 @@ import React from 'react';
 import styles from './PortfolioMain.module.scss';
 import PropTypes from 'prop-types';
 import Projects from '../Projects/ProjectsContainer';
-import { Link } from 'react-router-dom';
-
 
 class PortfolioMain extends React.Component {
-  selectedProject(payload) {
-    const { sendActiveProject } = this.props;
-    console.log(payload.target);
-
-  }
   state = {
     activeCategory: 69,
   };
@@ -49,9 +42,9 @@ class PortfolioMain extends React.Component {
           <div className='row'>
             {projects.filter(item => item.categories.includes(activeCategory))
             .map(item => (
-              <Link key={item.id} to={`/project/${item.id}`} className=' col-lg-3 col-md-4 col-6'>
+              <div key={item.id} className=' col-lg-3 col-md-4 col-6'>
                 <Projects {...item} />
-              </Link>
+              </div>
             ))}
           </div>
         </div>
@@ -75,7 +68,6 @@ PortfolioMain.propTypes = {
       content: PropTypes.string,
       date: PropTypes.string,
       categories: PropTypes.array,
-      sendActiveProject: PropTypes.func,
     })
   ),
 };

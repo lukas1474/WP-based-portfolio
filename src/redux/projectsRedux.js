@@ -1,6 +1,15 @@
 export const getAllProjects = ({ projects }) => projects;
 export const getCountProjects = ({ projects }) => projects.length;
 
+export const getProjectById = ({projects}, projectId) => {
+  const filtered = projects.filter(project => project.id == projectId.projectId);
+  // console.log(projectId.projectId);
+  // console.log(projects.filter(project));
+  return filtered.length ? filtered[0] : {error: true};
+  // console.log(projects);
+  // return projects;
+};
+
 const initialState = [
   {
     id: 5206,
@@ -52,8 +61,21 @@ const initialState = [
   },
 ];
 
+const reducerName = 'projects';
+const createActionName = name => `app/${reducerName}/${name}`;
+
+const SELECT_PROJECT = createActionName('SELECT_PROJECT');
+
+export const selectedProject = payload => ({payload: payload, type: SELECT_PROJECT });
+
 export default function reducer(statePart = initialState, action = {}) {
   switch (action.type) {
+    case SELECT_PROJECT: {
+      return {
+        ...statePart,
+        activePost: action.payload,
+      };
+    }
     default:
       return statePart;
   }
