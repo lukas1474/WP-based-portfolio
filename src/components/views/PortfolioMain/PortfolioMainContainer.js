@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { getAll } from '../../../redux/categoriesRedux';
-import { getAllProjects} from '../../../redux/projectsRedux';
+import { getAllProjects } from '../../../redux/projectsRedux';
+import { choseCategory } from '../../../redux/categoriesRedux';
 
 import PortfolioMain from './PortfolioMain';
 
@@ -9,4 +10,8 @@ const mapStateToProps = state => ({
   projects: getAllProjects(state),
 });
 
-export default connect(mapStateToProps)(PortfolioMain);
+const mapDispatchToProps = dispatch => ({
+  setState: activeCategory => dispatch(choseCategory({ activeCategory })),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(PortfolioMain);
