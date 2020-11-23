@@ -7,7 +7,7 @@ import ProjectPage from '../ProjectPage/ProjectPageContainer';
 class Projects extends React.Component {
 
   render() {
-    const { id, image, date, title, choseCategory, children} = this.props
+    const { id, image, date, title, choseCategory } = this.props
     return (
       <div className={styles.root} >
         <div className='container'>
@@ -20,7 +20,6 @@ class Projects extends React.Component {
                 <img src={image} className={styles.logo} />
               </p>
               {props => <ProjectPage {...props} key={this.props.id} />}
-              {/* {children} */}
             </Link>
             <p>{choseCategory}</p>
           </div>
@@ -31,7 +30,6 @@ class Projects extends React.Component {
 }
 
 Projects.propTypes = {
-  children: PropTypes.node,
   id: PropTypes.node,
   title: PropTypes.number,
   content: PropTypes.string,

@@ -6,8 +6,6 @@ import ProjectPage from './ProjectPage';
 const mapStateToProps = (state, props) => {
  const projects = getAllProjects(state);
  const project = getProjectById(state, props.match.params);
-
- console.log(props.match.params);
   return {
     projects,
     project,
