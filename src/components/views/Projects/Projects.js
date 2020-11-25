@@ -19,7 +19,7 @@ class Projects extends React.Component {
                 {title.rendered}
                 <img src={image} className={styles.logo} />
               </p>
-              {props => <ProjectPage {...props} key={this.props.id} />}
+              {props => <ProjectPage {...props} key={this.props.id && this.props.category} />}
             </Link>
             <p>{choseCategory}</p>
           </div>

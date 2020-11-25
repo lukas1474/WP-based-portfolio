@@ -2,6 +2,12 @@ export const getAll = ({ categories }) => categories;
 export const getCount = ({ categories }) => categories.length;
 export const getChoseCategory = ({ categories }) => categories.filter( choseCategory => (choseCategory == initialState.id ));
 
+export const getCategory = ({categories}, itemId) => {
+  const filtered = categories.filter(item => item.id == itemId);
+  console.log(itemId)
+  return filtered.length ? filtered[0] : {error: true};
+};
+
 const initialState = [
   { id: 69, name: 'Wszystkie' },
   { id: 45, name: 'Elewacja' },
