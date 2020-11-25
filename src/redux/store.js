@@ -5,7 +5,6 @@ import projectsReducer from './projectsRedux';
 const reducers ={
   categories: categoriesReducer,
   projects: projectsReducer,
-  choseCategory: categoriesReducer,
 };
 
 const combinedReducers = combineReducers(reducers);

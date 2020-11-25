@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { propTypes } from 'react-bootstrap/esm/Image';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 

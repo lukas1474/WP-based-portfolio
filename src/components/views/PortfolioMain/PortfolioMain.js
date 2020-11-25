@@ -57,15 +57,15 @@ PortfolioMain.propTypes = {
   children: PropTypes.node,
   categories: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string,
+      id: PropTypes.number,
       name: PropTypes.string,
     })
   ),
   projects: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
-      title: PropTypes.string,
-      content: PropTypes.string,
+      title: PropTypes.object,
+      content: PropTypes.object,
       date: PropTypes.string,
       categories: PropTypes.array,
     })

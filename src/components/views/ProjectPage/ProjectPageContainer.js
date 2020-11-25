@@ -1,19 +1,15 @@
 import { connect } from 'react-redux';
-import { getCategory, getAll } from '../../../redux/categoriesRedux';
-import { getAllProjects, getProjectById } from '../../../redux/projectsRedux';
+import { getCategory } from '../../../redux/categoriesRedux';
+import { getProjectById } from '../../../redux/projectsRedux';
 
 import ProjectPage from './ProjectPage';
 
 const mapStateToProps = (state, props) => {
- const projects = getAllProjects(state);
- const project = getProjectById(state, props.match.params);
- const category = getCategory(state, props.match.params);
- const categories = getAll(state);
+ const project = getProjectById(state, props.match.params.projectId);
+ const projectCategories = project.categories.map(categoryId => getCategory(state, categoryId));
   return {
-    projects,
     project,
-    category,
-    categories,
+    projectCategories,
   }
 };
 

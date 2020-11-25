@@ -2,7 +2,7 @@ export const getAllProjects = ({ projects }) => projects;
 export const getCountProjects = ({ projects }) => projects.length;
 
 export const getProjectById = ({projects}, projectId) => {
-  const filtered = projects.filter(project => project.id == projectId.projectId);
+  const filtered = projects.filter(project => project.id == projectId);
   return filtered.length ? filtered[0] : {error: true};
 };
 

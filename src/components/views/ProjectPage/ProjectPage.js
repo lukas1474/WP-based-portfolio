@@ -6,24 +6,25 @@ import { Link } from 'react-router-dom';
 class ProjectPage extends React.Component {
 
   render() {
-    const { id, title, image, project, categories, projects, item } = this.props;
+    const { project, projectCategories } = this.props;
 
     return (
       <div className={styles.root}>
         <div className='container'>
           <div className={styles.panelBar}>
             <Link to={`/`} className={styles.link}>
-              <button> {'<-'} Powrót </button>
+              <button> &lt; Powrót </button>
             </Link>
-            <div>
-            {/* {categories.filter(item => item.categories.includes(project.id))
-            .map(item => (
-              <p key={item.id}>
-                {item.name}
-              </p>
-            ))} */}
+            <div className={styles.projectCategories}>
+              <ul>
+                {projectCategories.filter(item => item.id != [69])
+                  .map(item => (
+                    <li key={item.id}>
+                      {item.name}
+                    </li>
+                  ))}
+              </ul>
             </div>
-            {console.log(project.id)}
             <h2>{project.id}</h2>
             <h2>{project.title.rendered}</h2>
           </div>
@@ -41,17 +42,8 @@ class ProjectPage extends React.Component {
 };
 
 ProjectPage.propTypes = {
-  id: PropTypes.string,
-  title: PropTypes.number,
-  image: PropTypes.node,
-  project: PropTypes.any,
-  projects: PropTypes.any,
-  categories: PropTypes.any,
-};
-
-ProjectPage.defaultProps = {
-  categories: [],
-  projects: [],
+  project: PropTypes.object,
+  projectCategories: PropTypes.any,
 };
 
 export default ProjectPage;
