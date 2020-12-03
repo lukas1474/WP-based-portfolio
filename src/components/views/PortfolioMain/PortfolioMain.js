@@ -2,11 +2,42 @@ import React from 'react';
 import styles from './PortfolioMain.module.scss';
 import PropTypes from 'prop-types';
 import Projects from '../Projects/ProjectsContainer';
+// import axios from 'axios';
 
 class PortfolioMain extends React.Component {
   state = {
     activeCategory: 69,
+    loading: true,
   };
+
+  // componentDidMount = () => {
+  //   fetch('https://duraj-wnetrza.pl/wp-json/wp/v2/categories')
+  //     .then(res => res.json())
+  //     .then(
+  //       (result) => {
+  //         this.setState({
+  //           isLoaded: true,
+  //           items: result.items
+  //         });
+  //         publishedProjects();
+  //         // console.log()
+  //       }
+  //     )
+  // }
+
+  // async componentDidMount() {
+  //   const url = 'https://duraj-wnetrza.pl/wp-json/wp/v2/categories';
+  //   const response = await fetch(url);
+  //   const data = await response.json();
+  //   this.setState({id: data.results[0]})
+  //   console.log(data);
+  // }
+
+  // componentDidMount() {
+  //   const { loadProjects } = this.props;
+  //   loadProjects();
+  // };
+
 
   handleCategoryChange(newCategory, event) {
     if (event !== undefined);
@@ -15,7 +46,7 @@ class PortfolioMain extends React.Component {
 
   render() {
 
-    const {categories, projects} = this.props;
+    const { categories, projects } = this.props;
     const { activeCategory } = this.state;
 
     return (
@@ -41,11 +72,11 @@ class PortfolioMain extends React.Component {
           </div>
           <div className='row'>
             {projects.filter(item => item.categories.includes(activeCategory))
-            .map(item => (
-              <div key={item.id} className=' col-lg-3 col-md-4 col-6'>
-                <Projects {...item} />
-              </div>
-            ))}
+              .map(item => (
+                <div key={item.id} className=' col-lg-3 col-md-4 col-6'>
+                  <Projects {...item} />
+                </div>
+              ))}
           </div>
         </div>
       </div>
