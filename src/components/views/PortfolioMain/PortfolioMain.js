@@ -5,10 +5,58 @@ import Projects from '../Projects/ProjectsContainer';
 // import axios from 'axios';
 
 class PortfolioMain extends React.Component {
-  state = {
-    activeCategory: 69,
-    loading: true,
-  };
+  constructor() {
+    // const { activeCategory } = this.state;
+    super();
+    this.state = {
+      categories: [],
+      projects: [],
+      activeCategory: 69,
+    }
+  }
+
+  // state = {
+  //   activeCategory: 69,
+  //   loading: true,
+  // };
+
+  componentDidMount() {
+    fetch('https://duraj-wnetrza.pl/wp-json/wp/v2/categories')
+      .then(results => {
+        console.log(results)
+        return results.json();
+      }).then(results => {
+        let categories = results.map((item) => {
+          return (
+            <button className={
+              item.id === this.state.activeCategory ? styles.active : undefined
+            }
+              onClick={() => this.handleCategoryChange(item.id)}>{item.name}</button>
+          )
+        })
+        this.setState({ categories: categories });
+        console.log(categories)
+      })
+    fetch('https://duraj-wnetrza.pl/wp-json/wp/v2/posts?per_page=100')
+      .then(results => {
+        console.log(results)
+        return results.json();
+      }).then(results => {
+        let projects = results.filter(item => item.categories)
+        .map((item) => {
+          console.log(item.categories)
+          return (
+            <div>
+              <p>{item.id}</p>
+              {/* <p>{project.date}</p> */}
+              {/* <p>{project.categories}</p> */}
+            </div>
+          )
+        })
+        this.setState({ projects: projects });
+        console.log(projects)
+      })
+  }
 
   // componentDidMount = () => {
   //   fetch('https://duraj-wnetrza.pl/wp-json/wp/v2/categories')
@@ -55,6 +103,9 @@ class PortfolioMain extends React.Component {
           <div className={styles.panelBar}>
             <div className={styles.menu}>
               <ul>
+                <li key={this.state.categories}>
+                  {this.state.categories}
+                </li>
                 {categories.map(item => (
                   <li key={item.id}>
                     <button
@@ -77,6 +128,10 @@ class PortfolioMain extends React.Component {
                   <Projects {...item} />
                 </div>
               ))}
+            <div className=' col-lg-3 col-md-4 col-6' key={this.state.projects}>
+
+              {this.state.projects}
+            </div>
           </div>
         </div>
       </div>
@@ -86,12 +141,12 @@ class PortfolioMain extends React.Component {
 
 PortfolioMain.propTypes = {
   children: PropTypes.node,
-  categories: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number,
-      name: PropTypes.string,
-    })
-  ),
+  // categories: PropTypes.arrayOf(
+  //   PropTypes.shape({
+  //     id: PropTypes.number,
+  //     name: PropTypes.string,
+  //   })
+  // ),
   projects: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
@@ -103,9 +158,9 @@ PortfolioMain.propTypes = {
   ),
 };
 
-PortfolioMain.defaultProps = {
-  categories: [],
-  projects: [],
-};
+// PortfolioMain.defaultProps = {
+//   categories: [],
+//   projects: [],
+// };
 
 export default PortfolioMain;
