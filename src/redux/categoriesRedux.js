@@ -2,18 +2,11 @@ export const getAll = ({ categories }) => categories;
 export const getCount = ({ categories }) => categories.length;
 
 export const getCategory = ({categories}, itemId) => {
-  const filtered = categories.filter(item => item.id == itemId);
+  const filtered = categories.data.filter(item => item.id == itemId);
   return filtered.length ? filtered[0] : {error: true};
 };
 
-const initialState = {
-  // data:[],
-  // { id: 69, name: 'Wszystkie' },
-  // { id: 45, name: 'Elewacja' },
-  // { id: 40, name: 'Salon' },
-  // { id: 37, name: 'Kuchnia' },
-  // { id: 36, name: 'Łazienka' },
-};
+const initialState = {};
 
 const reducerName = 'categories';
 
@@ -29,9 +22,7 @@ export default function reducer(statePart = initialState, action = {}) {
       console.log(action.payload)
       return {
         ...statePart,
-        // data: action.paylod,
         data: action.payload,
-        // {console.log()}
       }
     default:
       return statePart;

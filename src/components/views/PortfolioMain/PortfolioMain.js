@@ -2,23 +2,14 @@ import React from 'react';
 import styles from './PortfolioMain.module.scss';
 import PropTypes from 'prop-types';
 import Projects from '../Projects/ProjectsContainer';
-// import axios from 'axios';
 
 class PortfolioMain extends React.Component {
   constructor() {
-    // const { activeCategory } = this.state;
     super();
     this.state = {
-      // categories: [],
-      // projects: [],
-      activeCategory: 69,
+      activeCategory: 37,
     }
   }
-
-  // state = {
-  //   activeCategory: 69,
-  //   loading: true,
-  // };
 
   componentDidMount() {
     fetch('https://duraj-wnetrza.pl/wp-json/wp/v2/categories')
@@ -26,80 +17,24 @@ class PortfolioMain extends React.Component {
         console.log(results)
         return results.json();
       }).then(results => {
-        // let categories = results.map((item) => {
           let { apiCategory } = this.props;
           apiCategory(results);
           console.log(results)
-          // return (
-          //   <button className={
-          //     item.id === this.state.activeCategory ? styles.active : undefined
-          //   }
-          //     onClick={() => this.handleCategoryChange(item.id)}>{item.name}</button>
-
-
-        //   )
-        // })
-        // this.setState({ categories: results });
-        // const categories = this.state;
-        // const { apiCategory } = this.props;
-        // apiCategory(this.setState);
-        // console.log(apiCategory)
-        this.setState({ categories: apiCategory });
+        this.setState({ categories: [] });
         console.log(this.setState)
       })
 
     fetch('https://duraj-wnetrza.pl/wp-json/wp/v2/posts?per_page=100')
       .then(results => {
-        // console.log(results)
         return results.json();
       }).then(results => {
         let { apiProject } = this.props;
         apiProject(results);
         console.log(results)
-        // let projects = results.filter(item => item.categories)
-          // .map((item) => {
-            // console.log(item.categories)
-            // return (
-            //   <div>
-            //     <p>{item.id}</p>
-            //     {/* <p>{project.date}</p> */}
-            //     {/* <p>{project.categories}</p> */}
-            //   </div>
-            // )
-          // })
-        this.setState({ projects: apiProject });
-        // console.log(projects)
+        this.setState({ projects: []});
+        console.log({ projects: []})
       })
   }
-
-  // componentDidMount = () => {
-  //   fetch('https://duraj-wnetrza.pl/wp-json/wp/v2/categories')
-  //     .then(res => res.json())
-  //     .then(
-  //       (result) => {
-  //         this.setState({
-  //           isLoaded: true,
-  //           items: result.items
-  //         });
-  //         publishedProjects();
-  //         // console.log()
-  //       }
-  //     )
-  // }
-
-  // async componentDidMount() {
-  //   const url = 'https://duraj-wnetrza.pl/wp-json/wp/v2/categories';
-  //   const response = await fetch(url);
-  //   const data = await response.json();
-  //   this.setState({id: data.results[0]})
-  //   console.log(data);
-  // }
-
-  // componentDidMount() {
-  //   const { loadProjects } = this.props;
-  //   loadProjects();
-  // };
-
 
   handleCategoryChange(newCategory, event) {
     if (event !== undefined);
@@ -156,12 +91,6 @@ class PortfolioMain extends React.Component {
 PortfolioMain.propTypes = {
   children: PropTypes.node,
   apiCategory: PropTypes.func,
-  // categories: PropTypes.arrayOf(
-  //   PropTypes.shape({
-  //     id: PropTypes.number,
-  //     name: PropTypes.string,
-  //   })
-  // ),
   projects: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
@@ -172,10 +101,5 @@ PortfolioMain.propTypes = {
     })
   ),
 };
-
-// PortfolioMain.defaultProps = {
-//   categories: [],
-//   projects: [],
-// };
 
 export default PortfolioMain;
