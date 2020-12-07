@@ -9,8 +9,8 @@ class PortfolioMain extends React.Component {
     // const { activeCategory } = this.state;
     super();
     this.state = {
-      categories: [],
-      projects: [],
+      // categories: [],
+      // projects: [],
       activeCategory: 69,
     }
   }
@@ -26,35 +26,49 @@ class PortfolioMain extends React.Component {
         console.log(results)
         return results.json();
       }).then(results => {
-        let categories = results.map((item) => {
-          return (
-            <button className={
-              item.id === this.state.activeCategory ? styles.active : undefined
-            }
-              onClick={() => this.handleCategoryChange(item.id)}>{item.name}</button>
-          )
-        })
-        this.setState({ categories: categories });
-        console.log(categories)
+        // let categories = results.map((item) => {
+          let { apiCategory } = this.props;
+          apiCategory(results);
+          console.log(results)
+          // return (
+          //   <button className={
+          //     item.id === this.state.activeCategory ? styles.active : undefined
+          //   }
+          //     onClick={() => this.handleCategoryChange(item.id)}>{item.name}</button>
+
+
+        //   )
+        // })
+        // this.setState({ categories: results });
+        // const categories = this.state;
+        // const { apiCategory } = this.props;
+        // apiCategory(this.setState);
+        // console.log(apiCategory)
+        this.setState({ categories: apiCategory });
+        console.log(this.setState)
       })
+
     fetch('https://duraj-wnetrza.pl/wp-json/wp/v2/posts?per_page=100')
       .then(results => {
-        console.log(results)
+        // console.log(results)
         return results.json();
       }).then(results => {
-        let projects = results.filter(item => item.categories)
-        .map((item) => {
-          console.log(item.categories)
-          return (
-            <div>
-              <p>{item.id}</p>
-              {/* <p>{project.date}</p> */}
-              {/* <p>{project.categories}</p> */}
-            </div>
-          )
-        })
-        this.setState({ projects: projects });
-        console.log(projects)
+        let { apiProject } = this.props;
+        apiProject(results);
+        console.log(results)
+        // let projects = results.filter(item => item.categories)
+          // .map((item) => {
+            // console.log(item.categories)
+            // return (
+            //   <div>
+            //     <p>{item.id}</p>
+            //     {/* <p>{project.date}</p> */}
+            //     {/* <p>{project.categories}</p> */}
+            //   </div>
+            // )
+          // })
+        this.setState({ projects: apiProject });
+        // console.log(projects)
       })
   }
 
@@ -106,7 +120,7 @@ class PortfolioMain extends React.Component {
                 <li key={this.state.categories}>
                   {this.state.categories}
                 </li>
-                {categories.map(item => (
+                {categories.data && categories.data.map(item => (
                   <li key={item.id}>
                     <button
                       className={
@@ -122,7 +136,7 @@ class PortfolioMain extends React.Component {
             </div>
           </div>
           <div className='row'>
-            {projects.filter(item => item.categories.includes(activeCategory))
+            {projects.data && projects.data.filter(item => item.categories.includes(activeCategory))
               .map(item => (
                 <div key={item.id} className=' col-lg-3 col-md-4 col-6'>
                   <Projects {...item} />
@@ -141,6 +155,7 @@ class PortfolioMain extends React.Component {
 
 PortfolioMain.propTypes = {
   children: PropTypes.node,
+  apiCategory: PropTypes.func,
   // categories: PropTypes.arrayOf(
   //   PropTypes.shape({
   //     id: PropTypes.number,
