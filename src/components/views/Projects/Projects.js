@@ -12,13 +12,15 @@ class Projects extends React.Component {
       <div className={styles.root} >
         <div className='container'>
           <div>
-            <Link to={`/project/${id}`}  className={styles.link}>
+            <Link to={`/project/${id}`} className={styles.link}>
               <h2 className={styles.id}>{id}</h2>
-              <p className={styles.date}>{date}</p>
-              <p className={styles.title}>
-                {title.rendered}
+              <div className={styles.projectWindow}>
+                <p className={styles.title}>
+                  {title.rendered}
+                  
+                </p>
                 <img src={image} className={styles.logo} />
-              </p>
+              </div>
               {props => <ProjectPage {...props} key={this.props.id && this.props.category} />}
             </Link>
           </div>

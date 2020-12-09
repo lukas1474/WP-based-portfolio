@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './PortfolioMain.module.scss';
 import PropTypes from 'prop-types';
 import Projects from '../Projects/ProjectsContainer';
+import { Container, Row, Col } from 'react-bootstrap';
 
 class PortfolioMain extends React.Component {
   constructor() {
@@ -48,8 +49,8 @@ class PortfolioMain extends React.Component {
 
     return (
       <div className={styles.root}>
-        <div className='container'>
-          <div className={styles.panelBar}>
+        <Container className={styles.container}>
+          <Row className={styles.panelBar}>
             <div className={styles.menu}>
               <ul>
                 <li key={this.state.categories}>
@@ -69,20 +70,18 @@ class PortfolioMain extends React.Component {
                 ))}
               </ul>
             </div>
-          </div>
-          <div className='row'>
+          </Row>
+          <Container className={styles.container}>
+          <Row>
             {projects.data && projects.data.filter(item => item.categories.includes(activeCategory))
               .map(item => (
-                <div key={item.id} className=' col-lg-3 col-md-4 col-6'>
+                <Col xs={6} md={4} lg={3} key={item.id}>
                   <Projects {...item} />
-                </div>
+                </Col>
               ))}
-            <div className=' col-lg-3 col-md-4 col-6' key={this.state.projects}>
-
-              {this.state.projects}
-            </div>
-          </div>
-        </div>
+          </Row>
+          </Container>
+        </Container>
       </div>
     );
   }

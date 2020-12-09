@@ -20,11 +20,17 @@
 
 .title {
   font-size: 22px;
-  color: aqua;
+  color: black;
 }
 
 .logo {
   height: 200px;
   width: 200px;
   pointer-events: none;
+  border: solid 1px red;
+}
+
+.projectWindow {
+  border: solid 1px blue;
+  position: relative;
 }

@@ -19,8 +19,8 @@
 }
 
 .logo {
-  height: 200px;
-  width: 200px;
+  height: 350px;
+  width: 350px;
   pointer-events: none;
   padding: 5px;
 }
@@ -28,4 +28,12 @@
 .projectCategories {
   text-align: center;
   color: red;
+}
+
+.row {
+  border: solid 1px red;
+}
+
+.col {
+  border: solid 1px red;
 }

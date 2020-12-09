@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ProjectPage.module.scss';
 import { Link } from 'react-router-dom';
+import { Container, Row, Col } from 'react-bootstrap';
 
 class ProjectPage extends React.Component {
 
@@ -25,16 +26,23 @@ class ProjectPage extends React.Component {
                   ))}
               </ul>
             </div>
-            <h2>{project.id}</h2>
+            {/* <h2>{project.id}</h2> */}
             <h2>{project.title.rendered}</h2>
           </div>
-          <div className='row'>
-            <div className='row col-lg-3 col-md-4 col-6'>
+          <Row className='row'>
+            <Col xs={6} md={4} lg={6} className={styles.col}>
               <img src={project.image} className={styles.logo} />
               <img src={project.image} className={styles.logo} />
               <img src={project.image} className={styles.logo} />
-            </div>
-          </div>
+              <img src={project.image} className={styles.logo} />
+              <img src={project.image} className={styles.logo} />
+              <img src={project.image} className={styles.logo} />
+              <img src={project.image} className={styles.logo} />
+              <img src={project.image} className={styles.logo} />
+              <img src={project.image} className={styles.logo} />
+              <img src={project.image} className={styles.logo} />
+            </Col>
+          </Row>
         </div>
       </div>
     );
