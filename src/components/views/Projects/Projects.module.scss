@@ -1,6 +1,8 @@
 @import '../../../styles/settings.scss';
 @import '../../../styles/bootstrap.scss';
 
+// COMPONENT MAIN OPTIONS //
+// LINK // 
 
 .link{
   color:black;
@@ -13,24 +15,28 @@
   }
 }
 
-.date {
-  font-size: 20px;
-  color: pink;
-}
+// PROJECT SMALL WINDOW VIEW //
 
-.title {
-  font-size: 22px;
-  color: black;
+.projectWindow {
+  position: relative;
+  height: 225px;
+  width: 225px;
+  background-color: lightgrey;
 }
 
 .logo {
-  height: 200px;
-  width: 200px;
+  height: 225px;
+  width: 225px;
   pointer-events: none;
-  border: solid 1px red;
 }
 
-.projectWindow {
-  border: solid 1px blue;
-  position: relative;
+.title {
+  position: absolute;
+  font-size: 22px;
+  color: black;
+  margin: auto;
+  padding: auto;
+  bottom: 8px;
+  width: 10em;
+  text-align: center;
 }

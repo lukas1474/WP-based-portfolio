@@ -17,7 +17,6 @@ class Projects extends React.Component {
               <div className={styles.projectWindow}>
                 <p className={styles.title}>
                   {title.rendered}
-                  
                 </p>
                 <img src={image} className={styles.logo} />
               </div>

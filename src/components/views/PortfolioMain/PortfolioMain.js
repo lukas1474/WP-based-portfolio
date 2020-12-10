@@ -53,9 +53,6 @@ class PortfolioMain extends React.Component {
           <Row className={styles.panelBar}>
             <div className={styles.menu}>
               <ul>
-                <li key={this.state.categories}>
-                  {this.state.categories}
-                </li>
                 {categories.data && categories.data.map(item => (
                   <li key={item.id}>
                     <button

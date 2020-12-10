@@ -11,7 +11,7 @@ class ProjectPage extends React.Component {
 
     return (
       <div className={styles.root}>
-        <div className='container'>
+        <div className={styles.container}>
           <div className={styles.panelBar}>
             <Link to={`/`} className={styles.link}>
               <button> &lt; Powrót </button>
@@ -26,7 +26,6 @@ class ProjectPage extends React.Component {
                   ))}
               </ul>
             </div>
-            {/* <h2>{project.id}</h2> */}
             <h2>{project.title.rendered}</h2>
           </div>
           <Row className='row'>
