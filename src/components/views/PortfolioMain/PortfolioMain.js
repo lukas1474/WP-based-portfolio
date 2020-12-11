@@ -8,21 +8,18 @@ class PortfolioMain extends React.Component {
   constructor() {
     super();
     this.state = {
-      activeCategory: 37,
+      activeCategory: 'Wszystkie',
     }
   }
 
   componentDidMount() {
     fetch('https://duraj-wnetrza.pl/wp-json/wp/v2/categories')
       .then(results => {
-        console.log(results)
         return results.json();
       }).then(results => {
-          let { apiCategory } = this.props;
-          apiCategory(results);
-          console.log(results)
+        let { apiCategory } = this.props;
+        apiCategory(results);
         this.setState({ categories: [] });
-        console.log(this.setState)
       })
 
     fetch('https://duraj-wnetrza.pl/wp-json/wp/v2/posts?per_page=100')
@@ -31,9 +28,7 @@ class PortfolioMain extends React.Component {
       }).then(results => {
         let { apiProject } = this.props;
         apiProject(results);
-        console.log(results)
-        this.setState({ projects: []});
-        console.log({ projects: []})
+        this.setState({ projects: [] });
       })
   }
 
@@ -44,7 +39,7 @@ class PortfolioMain extends React.Component {
 
   render() {
 
-    const { categories, projects } = this.props;
+    const { categories, projects, mainCategory, id, name } = this.props;
     const { activeCategory } = this.state;
 
     return (
@@ -53,6 +48,15 @@ class PortfolioMain extends React.Component {
           <Row className={styles.panelBar}>
             <div className={styles.menu}>
               <ul>
+                {/* TODO wszystkie kategorie */}
+                {/* {mainCategory && mainCategory.map(item => (
+                  <button
+                    // onClick={() => this.handleCategoryChange(item.id)}
+                  >
+                    asdas
+                  </button>
+                ))}
+                {console.log(mainCategory)} */}
                 {categories.data && categories.data.map(item => (
                   <li key={item.id}>
                     <button
@@ -69,14 +73,14 @@ class PortfolioMain extends React.Component {
             </div>
           </Row>
           <Container className={styles.container}>
-          <Row>
-            {projects.data && projects.data.filter(item => item.categories.includes(activeCategory))
-              .map(item => (
-                <Col xs={6} md={4} lg={3} key={item.id}>
-                  <Projects {...item} />
-                </Col>
-              ))}
-          </Row>
+            <Row>
+              {projects.data && projects.data.filter(item => item.categories.includes(activeCategory))
+                .map(item => (
+                  <Col xs={6} md={4} lg={3} key={item.id}>
+                    <Projects {...item} />
+                  </Col>
+                ))}
+            </Row>
           </Container>
         </Container>
       </div>
@@ -94,6 +98,12 @@ PortfolioMain.propTypes = {
       content: PropTypes.object,
       date: PropTypes.string,
       categories: PropTypes.array,
+    })
+  ),
+  mainCategory: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
     })
   ),
 };
