@@ -9,10 +9,10 @@ export const getCategory = ({categories}, itemId) => {
 
 const initialState = {
   mainCategory: [
-    { id: 1000, name: 'Wszystkie' }
+    { id: 1000, name: 'Wszystkie' },
   ],
 };
-{console.log(initialState)}
+{console.log(initialState);}
 
 const reducerName = 'categories';
 

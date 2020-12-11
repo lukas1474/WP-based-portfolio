@@ -7,7 +7,7 @@ import ProjectPage from '../ProjectPage/ProjectPageContainer';
 class Projects extends React.Component {
 
   render() {
-    const { id, image, date, title } = this.props
+    const { id, image, title } = this.props;
     return (
       <div className={styles.root} >
         <div className='container'>
@@ -34,6 +34,7 @@ Projects.propTypes = {
   title: PropTypes.object,
   date: PropTypes.string,
   image: PropTypes.node,
+  category: PropTypes.object,
 };
 
 export default Projects;
