@@ -3,7 +3,7 @@ export const getCountProjects = ({ projects }) => projects.length;
 
 export const getProjectById = ({projects}, projectId) => {
   const filtered = projects.data && projects.data.filter(project => project.id == projectId);
-  return filtered.length ? filtered[0] : {error: true};
+  return filtered && filtered.length ? filtered[0] : null;
 };
 
 const initialState = {};

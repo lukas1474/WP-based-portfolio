@@ -6,7 +6,7 @@ import ProjectPage from './ProjectPage';
 
 const mapStateToProps = (state, props) => {
  const project = getProjectById(state, props.match.params.projectId);
- const projectCategories = project.categories.map(categoryId => getCategory(state, categoryId));
+ const projectCategories = project ? project.categories.map(categoryId => getCategory(state, categoryId)) : [];
   return {
     project,
     projectCategories,

@@ -48,7 +48,8 @@ class PortfolioMain extends React.Component {
           <Row className={styles.panelBar}>
             <div className={styles.menu}>
               <ul>
-                {/* TODO wszystkie kategorie */}
+                {/* TODO wszystkie kategorie ma ustawiac aktywna kategorie na null
+                 */}
                 {/* {mainCategory && mainCategory.map(item => (
                   <button
                     // onClick={() => this.handleCategoryChange(item.id)}

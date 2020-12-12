@@ -18,7 +18,7 @@ class Projects extends React.Component {
                 <p className={styles.title}>
                   {title.rendered}
                 </p>
-                <img src={image} className={styles.logo} />
+                <img src={"https://www.duraj-wnetrza.pl/wp-content/uploads/2019/09/5-2-1024x768.jpg"} className={styles.logo}/>
               </div>
               {props => <ProjectPage {...props} key={this.props.id && this.props.category} />}
             </Link>

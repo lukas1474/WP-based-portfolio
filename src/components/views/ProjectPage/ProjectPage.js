@@ -9,6 +9,10 @@ class ProjectPage extends React.Component {
   render() {
     const { project, projectCategories } = this.props;
 
+    // TODO //
+    // if(project == null)
+    // return null;
+
     return (
       <div className={styles.root}>
         <div className={styles.container}>
