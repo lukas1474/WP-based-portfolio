@@ -20,7 +20,7 @@ const createActionName = name => `app/${reducerName}/${name}`;
 
 const API_CATEGORY = createActionName('API_CATEGORY');
 
-export const apiCategory1 = payload => ({payload: payload, type: API_CATEGORY });
+export const apiCategory = payload => ({payload: payload, type: API_CATEGORY });
 
 export default function reducer(statePart = initialState, action = {}) {
   switch (action.type) {

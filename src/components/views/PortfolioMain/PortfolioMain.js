@@ -17,18 +17,16 @@ class PortfolioMain extends React.Component {
       .then(results => {
         return results.json();
       }).then(results => {
-        let { apiCategory } = this.props;
+        const { apiCategory } = this.props;
         apiCategory(results);
-        this.setState({ categories: [] });
       })
 
     fetch('https://duraj-wnetrza.pl/wp-json/wp/v2/posts?per_page=100')
       .then(results => {
         return results.json();
       }).then(results => {
-        let { apiProject } = this.props;
+        const { apiProject } = this.props;
         apiProject(results);
-        this.setState({ projects: [] });
       })
   }
 
