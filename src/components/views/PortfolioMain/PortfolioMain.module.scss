@@ -1,23 +1,26 @@
 @import '../../../styles/settings.scss';
 @import '../../../styles/bootstrap.scss';
 
+// COMPONENT MAIN OPTIONS //
+
 .root {
-  background-color: grey;
-  min-height: 70vh;
+  background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  text-align: center;
+  padding: 20px;
 }
 
+// CATEGORIES //
+
 .panelBar {
-  color: grey;
-  margin-bottom: 30px;
   position: relative;
-  background-color: grey;
+  background-color: white;
+  padding: 10px;
+  margin: auto;
 }
 
 .menu {
@@ -28,19 +31,27 @@ ul {
   margin: 0;
   padding: 0;
   list-style: none;
+  border-bottom: 1px solid#282c34;
 
   button {
-    color: 282c34;
+    border: none;
+    background-color: inherit;
+    padding: 14px 28px;
+    font-size: 20px;
+    cursor: pointer;
+    display: inline-block;
     text-decoration: none;
+    margin: 5px;
 
     &:hover,
     &.active {
-      color: red;
+      color: #61dafb;
+      background: #eee;
       text-decoration: none;
     }
 
     &.active {
-      color: red;
+      color: #61dafb;
     }
   }
 }
@@ -49,4 +60,11 @@ li {
   display: inline-block;
   margin: 0 0.5rem;
   font-weight: 600;
+}
+
+// PROJECTS VIEW //
+
+.container {
+  padding: 10px;
+  width: 100%;;
 }

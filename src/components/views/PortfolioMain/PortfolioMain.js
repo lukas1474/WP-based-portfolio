@@ -2,11 +2,33 @@ import React from 'react';
 import styles from './PortfolioMain.module.scss';
 import PropTypes from 'prop-types';
 import Projects from '../Projects/ProjectsContainer';
+import { Container, Row, Col } from 'react-bootstrap';
 
 class PortfolioMain extends React.Component {
-  state = {
-    activeCategory: 69,
-  };
+  constructor() {
+    super();
+    this.state = {
+      activeCategory: 'Wszystkie',
+    }
+  }
+
+  componentDidMount() {
+    fetch('https://duraj-wnetrza.pl/wp-json/wp/v2/categories')
+      .then(results => {
+        return results.json();
+      }).then(results => {
+        const { apiCategory } = this.props;
+        apiCategory(results);
+      })
+
+    fetch('https://duraj-wnetrza.pl/wp-json/wp/v2/posts?per_page=100')
+      .then(results => {
+        return results.json();
+      }).then(results => {
+        const { apiProject } = this.props;
+        apiProject(results);
+      })
+  }
 
   handleCategoryChange(newCategory, event) {
     if (event !== undefined);
@@ -15,16 +37,26 @@ class PortfolioMain extends React.Component {
 
   render() {
 
-    const {categories, projects} = this.props;
+    const { categories, projects, mainCategory, id, name } = this.props;
     const { activeCategory } = this.state;
 
     return (
       <div className={styles.root}>
-        <div className='container'>
-          <div className={styles.panelBar}>
+        <Container className={styles.container}>
+          <Row className={styles.panelBar}>
             <div className={styles.menu}>
               <ul>
-                {categories.map(item => (
+                {/* TODO wszystkie kategorie ma ustawiac aktywna kategorie na null
+                 */}
+                {/* {mainCategory && mainCategory.map(item => (
+                  <button
+                    // onClick={() => this.handleCategoryChange(item.id)}
+                  >
+                    asdas
+                  </button>
+                ))}
+                {console.log(mainCategory)} */}
+                {categories.data && categories.data.map(item => (
                   <li key={item.id}>
                     <button
                       className={
@@ -38,16 +70,18 @@ class PortfolioMain extends React.Component {
                 ))}
               </ul>
             </div>
-          </div>
-          <div className='row'>
-            {projects.filter(item => item.categories.includes(activeCategory))
-            .map(item => (
-              <div key={item.id} className=' col-lg-3 col-md-4 col-6'>
-                <Projects {...item} />
-              </div>
-            ))}
-          </div>
-        </div>
+          </Row>
+          <Container className={styles.container}>
+            <Row>
+              {projects.data && projects.data.filter(item => item.categories.includes(activeCategory))
+                .map(item => (
+                  <Col xs={6} md={4} lg={3} key={item.id}>
+                    <Projects {...item} />
+                  </Col>
+                ))}
+            </Row>
+          </Container>
+        </Container>
       </div>
     );
   }
@@ -55,12 +89,7 @@ class PortfolioMain extends React.Component {
 
 PortfolioMain.propTypes = {
   children: PropTypes.node,
-  categories: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number,
-      name: PropTypes.string,
-    })
-  ),
+  apiCategory: PropTypes.func,
   projects: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
@@ -70,11 +99,12 @@ PortfolioMain.propTypes = {
       categories: PropTypes.array,
     })
   ),
-};
-
-PortfolioMain.defaultProps = {
-  categories: [],
-  projects: [],
+  mainCategory: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+    })
+  ),
 };
 
 export default PortfolioMain;

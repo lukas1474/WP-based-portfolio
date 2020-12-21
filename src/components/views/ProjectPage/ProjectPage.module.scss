@@ -1,9 +1,10 @@
 @import '../../../styles/settings.scss';
 @import '../../../styles/bootstrap.scss';
 
+// COMPONENT MAIN OPTIONS //
+
 .root {
-  background-color: grey;
-  min-height: 70vh;
+  background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,7 +12,43 @@
   font-size: calc(10px + 2vmin);
   color: white;
   text-align: center;
+  padding: 10px;
 }
+
+.container {
+  padding: 10px;
+}
+
+// BUTTON AND CATEGORIES //
+
+button {
+  border: none;
+  background-color: inherit;
+  padding: 14px 28px;
+  font-size: 20px;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+
+  &:hover,
+  &.active {
+    color: #61dafb;
+    background: #eee;
+    text-decoration: none;
+  }
+
+  &.active {
+    color: #61dafb;
+  }
+}
+
+.projectCategories {
+  text-align: center;
+  margin: 10px;
+  color: black;
+}
+
+// VIEW //
 
 .title {
   font-size: 22px;
@@ -19,13 +56,8 @@
 }
 
 .logo {
-  height: 200px;
-  width: 200px;
+  height: 350px;
+  width: 350px;
   pointer-events: none;
   padding: 5px;
-}
-
-.projectCategories {
-  text-align: center;
-  color: red;
 }
