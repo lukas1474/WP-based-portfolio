@@ -13,13 +13,13 @@ class PortfolioMain extends React.Component {
   }
 
   componentDidMount() {
-    fetch('https://duraj-wnetrza.pl/wp-json/wp/v2/categories')
-      .then(results => {
-        return results.json();
-      }).then(results => {
-        const { apiCategory } = this.props;
-        apiCategory(results);
-      })
+  //   fetch('https://duraj-wnetrza.pl/wp-json/wp/v2/categories')
+  //     .then(results => {
+  //       return results.json();
+  //     }).then(results => {
+  //       const { apiCategory } = this.props;
+  //       apiCategory(results);
+  //     })
 
     fetch('https://duraj-wnetrza.pl/wp-json/wp/v2/posts?per_page=100')
       .then(results => {
@@ -27,6 +27,7 @@ class PortfolioMain extends React.Component {
       }).then(results => {
         const { apiProject } = this.props;
         apiProject(results);
+        console.log('results', results)
       })
   }
 
@@ -90,6 +91,7 @@ class PortfolioMain extends React.Component {
 PortfolioMain.propTypes = {
   children: PropTypes.node,
   apiCategory: PropTypes.func,
+  apiProject: PropTypes.func,
   projects: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
