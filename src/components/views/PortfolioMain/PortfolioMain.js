@@ -10,7 +10,7 @@ class PortfolioMain extends React.Component {
   constructor() {
     super();
     this.state = {
-      mainCategory: 'Wszystkie',
+      activeCategory: 1000 ,
     }
   }
 
@@ -59,6 +59,7 @@ class PortfolioMain extends React.Component {
                   </button>
                 ))}
                 {console.log(mainCategory)} */}
+                {/* {activeCategory} */}
                 {categories.data && categories.data.filter(item => item.id > 1)
                 .map(item => (
                   <li key={item.id}>
@@ -69,9 +70,12 @@ class PortfolioMain extends React.Component {
                       onClick={() => this.handleCategoryChange(item.id)}
                     >
                       {item.name}
+                      {console.log(item)}
                     </button>
                   </li>
+
                 ))}
+
               </ul>
             </div>
           </Row>
@@ -82,7 +86,9 @@ class PortfolioMain extends React.Component {
                   <Col xs={6} md={4} lg={3} key={item.id}>
                     <Projects {...item} />
                   </Col>
+
                 ))}
+                 {console.log(activeCategory)}
             </Row>
           </Container>
         </Container>
