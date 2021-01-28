@@ -1,6 +1,8 @@
 import React from 'react';
-import styles from './PortfolioMain.module.scss';
 import PropTypes from 'prop-types';
+
+import styles from './PortfolioMain.module.scss';
+
 import Projects from '../Projects/ProjectsContainer';
 import { Container, Row, Col } from 'react-bootstrap';
 
@@ -8,18 +10,19 @@ class PortfolioMain extends React.Component {
   constructor() {
     super();
     this.state = {
-      activeCategory: 'Wszystkie',
+      mainCategory: 'Wszystkie',
     }
   }
 
   componentDidMount() {
-  //   fetch('https://duraj-wnetrza.pl/wp-json/wp/v2/categories')
-  //     .then(results => {
-  //       return results.json();
-  //     }).then(results => {
-  //       const { apiCategory } = this.props;
-  //       apiCategory(results);
-  //     })
+    fetch(`https://duraj-wnetrza.pl/wp-json/wp/v2/categories`)
+      .then(results => {
+        return results.json();
+      }).then(results => {
+        const { apiCategory } = this.props;
+        apiCategory(results);
+        console.log(results)
+      })
 
     fetch('https://duraj-wnetrza.pl/wp-json/wp/v2/posts?per_page=100')
       .then(results => {
@@ -27,7 +30,6 @@ class PortfolioMain extends React.Component {
       }).then(results => {
         const { apiProject } = this.props;
         apiProject(results);
-        console.log('results', results)
       })
   }
 
@@ -57,7 +59,8 @@ class PortfolioMain extends React.Component {
                   </button>
                 ))}
                 {console.log(mainCategory)} */}
-                {categories.data && categories.data.map(item => (
+                {categories.data && categories.data.filter(item => item.id > 1)
+                .map(item => (
                   <li key={item.id}>
                     <button
                       className={
@@ -91,7 +94,6 @@ class PortfolioMain extends React.Component {
 PortfolioMain.propTypes = {
   children: PropTypes.node,
   apiCategory: PropTypes.func,
-  apiProject: PropTypes.func,
   projects: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
