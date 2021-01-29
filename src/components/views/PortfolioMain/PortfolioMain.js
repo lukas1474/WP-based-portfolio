@@ -10,7 +10,7 @@ class PortfolioMain extends React.Component {
   constructor() {
     super();
     this.state = {
-      activeCategory: 1000 ,
+      activeCategory: 1000,
     }
   }
 
@@ -21,7 +21,6 @@ class PortfolioMain extends React.Component {
       }).then(results => {
         const { apiCategory } = this.props;
         apiCategory(results);
-        console.log(results)
       })
 
     fetch('https://duraj-wnetrza.pl/wp-json/wp/v2/posts?per_page=100')
@@ -40,8 +39,10 @@ class PortfolioMain extends React.Component {
 
   render() {
 
-    const { categories, projects, mainCategory, id, name } = this.props;
+    const { categories, projects } = this.props;
     const { activeCategory } = this.state;
+
+    const cat = categories.mainCategory.concat(categories.data);
 
     return (
       <div className={styles.root}>
@@ -49,18 +50,7 @@ class PortfolioMain extends React.Component {
           <Row className={styles.panelBar}>
             <div className={styles.menu}>
               <ul>
-                {/* TODO wszystkie kategorie ma ustawiac aktywna kategorie na null
-                 */}
-                {/* {mainCategory && mainCategory.map(item => (
-                  <button
-                    // onClick={() => this.handleCategoryChange(item.id)}
-                  >
-                    asdas
-                  </button>
-                ))}
-                {console.log(mainCategory)} */}
-                {/* {activeCategory} */}
-                {categories.data && categories.data.filter(item => item.id > 1)
+                {categories.data && cat.filter(item => item.id > 1)
                 .map(item => (
                   <li key={item.id}>
                     <button
@@ -70,7 +60,6 @@ class PortfolioMain extends React.Component {
                       onClick={() => this.handleCategoryChange(item.id)}
                     >
                       {item.name}
-                      {console.log(item)}
                     </button>
                   </li>
 
@@ -81,14 +70,15 @@ class PortfolioMain extends React.Component {
           </Row>
           <Container className={styles.container}>
             <Row>
-              {projects.data && projects.data.filter(item => item.categories.includes(activeCategory))
+              {projects.data && projects.data.filter(item =>{
+                if(activeCategory === 1000)
+                return this.props.projects
+                return item.categories.includes(activeCategory)})
                 .map(item => (
                   <Col xs={6} md={4} lg={3} key={item.id}>
                     <Projects {...item} />
                   </Col>
-
                 ))}
-                 {console.log(activeCategory)}
             </Row>
           </Container>
         </Container>
@@ -106,7 +96,6 @@ PortfolioMain.propTypes = {
       title: PropTypes.object,
       content: PropTypes.object,
       date: PropTypes.string,
-      categories: PropTypes.array,
     })
   ),
   mainCategory: PropTypes.arrayOf(

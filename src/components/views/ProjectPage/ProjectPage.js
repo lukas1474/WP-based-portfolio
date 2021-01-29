@@ -23,7 +23,7 @@ class ProjectPage extends React.Component {
               <button> &lt; Powrót </button>
             </Link>
             <div className={styles.projectCategories}>
-              <ul>
+              <ul >
                 {projectCategories.filter(item => item.id != [69])
                   .map(item => (
                     <li key={item.id}>
@@ -36,16 +36,16 @@ class ProjectPage extends React.Component {
           </div>
           <Row className='row'>
             <Col xs={6} md={4} lg={6} className={styles.col}>
-              <img src={project.image} className={styles.logo} />
-              <img src={project.image} className={styles.logo} />
-              <img src={project.image} className={styles.logo} />
-              <img src={project.image} className={styles.logo} />
-              <img src={project.image} className={styles.logo} />
-              <img src={project.image} className={styles.logo} />
-              <img src={project.image} className={styles.logo} />
-              <img src={project.image} className={styles.logo} />
-              <img src={project.image} className={styles.logo} />
-              <img src={project.image} className={styles.logo} />
+              <img src={project.image} className={styles.logo} alt='zdj z projektu' />
+              <img src={project.image} className={styles.logo} alt='zdj z projektu' />
+              <img src={project.image} className={styles.logo} alt='zdj z projektu' />
+              <img src={project.image} className={styles.logo} alt='zdj z projektu' />
+              <img src={project.image} className={styles.logo} alt='zdj z projektu' />
+              <img src={project.image} className={styles.logo} alt='zdj z projektu' />
+              <img src={project.image} className={styles.logo} alt='zdj z projektu' />
+              <img src={project.image} className={styles.logo} alt='zdj z projektu' />
+              <img src={project.image} className={styles.logo} alt='zdj z projektu' />
+              <img src={project.image} className={styles.logo} alt='zdj z projektu' />
             </Col>
           </Row>
         </div>
@@ -55,6 +55,7 @@ class ProjectPage extends React.Component {
 };
 
 ProjectPage.propTypes = {
+  children: PropTypes.node,
   project: PropTypes.object,
   projectCategories: PropTypes.any,
 };

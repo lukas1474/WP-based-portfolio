@@ -1,13 +1,15 @@
 import React from 'react';
-import styles from './Projects.module.scss';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+
+import styles from './Projects.module.scss';
+
 import ProjectPage from '../ProjectPage/ProjectPageContainer';
+import { Link } from 'react-router-dom';
 
 class Projects extends React.Component {
 
   render() {
-    const { id, image, title } = this.props;
+    const { id, title } = this.props;
     return (
       <div className={styles.root} >
         <div className='container'>
@@ -18,7 +20,7 @@ class Projects extends React.Component {
                 <p className={styles.title}>
                   {title.rendered}
                 </p>
-                <img src={"https://www.duraj-wnetrza.pl/wp-content/uploads/2019/09/5-2-1024x768.jpg"} className={styles.logo}/>
+                <img src={"https://www.duraj-wnetrza.pl/wp-content/uploads/2019/09/5-2-1024x768.jpg"} className={styles.logo} alt='zdj projektu' />
               </div>
               {props => <ProjectPage {...props} key={this.props.id && this.props.category} />}
             </Link>
@@ -30,6 +32,7 @@ class Projects extends React.Component {
 }
 
 Projects.propTypes = {
+  children: PropTypes.node,
   id: PropTypes.node,
   title: PropTypes.object,
   date: PropTypes.string,

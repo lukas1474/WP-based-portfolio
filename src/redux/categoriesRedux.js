@@ -1,10 +1,10 @@
 export const getAll = ({ categories }) => categories;
 export const getCount = ({ categories }) => categories.length;
-export const getMainCategory = ({mainCategory}) => mainCategory;
+export const getMainCategory = ({ mainCategory }) => mainCategory;
 
-export const getCategory = ({categories}, itemId) => {
+export const getCategory = ({ categories }, itemId) => {
   const filtered = categories.data.filter(item => item.id == itemId);
-  return filtered.length ? filtered[0] : {error: true};
+  return filtered.length ? filtered[0] : { error: true };
 };
 
 const initialState = {
@@ -12,7 +12,6 @@ const initialState = {
     { id: 1000, name: 'Wszystkie' },
   ],
 };
-{console.log(initialState);}
 
 const reducerName = 'categories';
 
@@ -20,7 +19,7 @@ const createActionName = name => `app/${reducerName}/${name}`;
 
 const API_CATEGORY = createActionName('API_CATEGORY');
 
-export const apiCategory = payload => ({payload: payload, type: API_CATEGORY });
+export const apiCategory = payload => ({ payload: payload, type: API_CATEGORY });
 
 export default function reducer(statePart = initialState, action = {}) {
   switch (action.type) {
