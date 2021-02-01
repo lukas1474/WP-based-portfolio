@@ -21,13 +21,14 @@
   position: relative;
   height: 225px;
   width: 225px;
-  background-color: lightgrey;
 }
 
 .logo {
   height: 225px;
   width: 225px;
+  padding: 0;
   pointer-events: none;
+  object-fit: cover;
 }
 
 .title {

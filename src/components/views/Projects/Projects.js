@@ -9,7 +9,12 @@ import { Link } from 'react-router-dom';
 class Projects extends React.Component {
 
   render() {
-    const { id, title } = this.props;
+
+    const { id, title, content} = this.props;
+
+    const string = content.rendered;
+    let re = string.match(/(?<=src=")(.*?)(?=")/gm);
+
     return (
       <div className={styles.root} >
         <div className='container'>
@@ -20,9 +25,19 @@ class Projects extends React.Component {
                 <p className={styles.title}>
                   {title.rendered}
                 </p>
-                <img src={"https://www.duraj-wnetrza.pl/wp-content/uploads/2019/09/5-2-1024x768.jpg"} className={styles.logo} alt='zdj projektu' />
+                <ul >
+                {re && re
+                .filter(item => item == re[0])
+                .map(item => {
+                return (
+                  <li key={item.id}>
+                    <img src={item} className={styles.logo} alt='zdj z projektu' />
+                  </li>
+                )
+                })}
+              </ul>
               </div>
-              {props => <ProjectPage {...props} key={this.props.id && this.props.category} />}
+              {props => <ProjectPage {...props} key={this.props.id} re={this.props.title}/>}
             </Link>
           </div>
         </div>
@@ -38,6 +53,9 @@ Projects.propTypes = {
   date: PropTypes.string,
   image: PropTypes.node,
   category: PropTypes.object,
+  project: PropTypes.object,
+  projectCategories: PropTypes.any,
+  re: PropTypes.any,
 };
 
 export default Projects;

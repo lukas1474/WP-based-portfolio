@@ -44,8 +44,11 @@ button {
 
 .projectCategories {
   text-align: center;
-  margin: 10px;
-  color: black;
+  color:#61dafb;
+}
+
+.categoryTitle {
+  margin: 0 10px 0 10px;
 }
 
 // VIEW //
@@ -60,4 +63,8 @@ button {
   width: 350px;
   pointer-events: none;
   padding: 5px;
+}
+
+.title {
+  color: black;
 }

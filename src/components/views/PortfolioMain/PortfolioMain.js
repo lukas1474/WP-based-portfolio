@@ -62,9 +62,7 @@ class PortfolioMain extends React.Component {
                       {item.name}
                     </button>
                   </li>
-
                 ))}
-
               </ul>
             </div>
           </Row>

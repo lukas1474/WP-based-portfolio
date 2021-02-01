@@ -9,11 +9,12 @@ import { Row, Col } from 'react-bootstrap';
 class ProjectPage extends React.Component {
 
   render() {
-    const { project, projectCategories } = this.props;
 
-    // TODO //
-    // if(project == null)
-    // return null;
+    const { project, projectCategories, re } = this.props;
+
+    const string = project.content.rendered;
+
+    let reProject = string.match(/(?<=src=")(.*?)(?=")/gm);
 
     return (
       <div className={styles.root}>
@@ -26,26 +27,24 @@ class ProjectPage extends React.Component {
               <ul >
                 {projectCategories.filter(item => item.id != [69])
                   .map(item => (
-                    <li key={item.id}>
+                    <li key={item.id} className={styles.categoryTitle}>
                       {item.name}
                     </li>
                   ))}
               </ul>
             </div>
-            <h2>{project.title.rendered}</h2>
+            <h2 className={styles.title}>{project.title.rendered}</h2>
           </div>
           <Row className='row'>
             <Col xs={6} md={4} lg={6} className={styles.col}>
-              <img src={project.image} className={styles.logo} alt='zdj z projektu' />
-              <img src={project.image} className={styles.logo} alt='zdj z projektu' />
-              <img src={project.image} className={styles.logo} alt='zdj z projektu' />
-              <img src={project.image} className={styles.logo} alt='zdj z projektu' />
-              <img src={project.image} className={styles.logo} alt='zdj z projektu' />
-              <img src={project.image} className={styles.logo} alt='zdj z projektu' />
-              <img src={project.image} className={styles.logo} alt='zdj z projektu' />
-              <img src={project.image} className={styles.logo} alt='zdj z projektu' />
-              <img src={project.image} className={styles.logo} alt='zdj z projektu' />
-              <img src={project.image} className={styles.logo} alt='zdj z projektu' />
+              <ul >
+                {reProject && reProject.map(item => (
+                    <li key={item.id}>
+                      <img src={item} className={styles.logo} alt='zdj z projektu' />
+                    </li>
+                  ))}
+                  {console.log(re)}
+              </ul>
             </Col>
           </Row>
         </div>
@@ -58,6 +57,7 @@ ProjectPage.propTypes = {
   children: PropTypes.node,
   project: PropTypes.object,
   projectCategories: PropTypes.any,
+  re: PropTypes.any,
 };
 
 export default ProjectPage;
