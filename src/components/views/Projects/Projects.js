@@ -18,14 +18,13 @@ class Projects extends React.Component {
     return (
       <div className={styles.root} >
         <div className='container'>
-          <div>
-            <Link to={`/project/${id}`} className={styles.link}>
-              <h2 className={styles.id}>{id}</h2>
+          <div className={styles.as}>
+            <Link to={`/${id}`} className={styles.link}>
               <div className={styles.projectWindow}>
                 <p className={styles.title}>
                   {title.rendered}
                 </p>
-                <ul >
+                <ul className={styles.projectsUl}>
                 {re && re
                 .filter(item => item == re[0])
                 .map(item => {

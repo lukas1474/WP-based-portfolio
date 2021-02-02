@@ -49,10 +49,10 @@ class PortfolioMain extends React.Component {
         <Container className={styles.container}>
           <Row className={styles.panelBar}>
             <div className={styles.menu}>
-              <ul>
+              <ul className={styles.portfolioUl}>
                 {categories.data && cat.filter(item => item.id > 1)
                 .map(item => (
-                  <li key={item.id}>
+                  <li key={item.id} className={styles.portfolioLi}>
                     <button
                       className={
                         item.id === activeCategory ? styles.active : undefined
@@ -73,7 +73,7 @@ class PortfolioMain extends React.Component {
                 return this.props.projects
                 return item.categories.includes(activeCategory)})
                 .map(item => (
-                  <Col xs={6} md={4} lg={3} key={item.id}>
+                  <Col xs={12} md={6} lg={4} key={item.id}>
                     <Projects {...item} />
                   </Col>
                 ))}

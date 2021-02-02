@@ -4,13 +4,13 @@
 // COMPONENT MAIN OPTIONS //
 
 .root {
-  background-color: white;
+  background-color: $portfolioMain-background-color;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: $portfolioMain-text-color;
   padding: 20px;
 }
 
@@ -18,7 +18,7 @@
 
 .panelBar {
   position: relative;
-  background-color: white;
+  background-color: $portfolioMain-background-color-categories;
   padding: 10px;
   margin: auto;
 }
@@ -27,14 +27,12 @@
   text-align: center;
 }
 
-ul {
-  margin: 0;
-  padding: 0;
+.portfolioUl {
   list-style: none;
 
   button {
     border: none;
-    background-color: inherit;
+    background-color: $portfolioMain-categories-background-color-button;
     padding: 14px 28px;
     font-size: 20px;
     cursor: pointer;
@@ -44,13 +42,13 @@ ul {
 
     &:hover,
     &.active {
-      color: #61dafb;
-      background: #eee;
+      color: $portfolioMain-color-button-active;
+      background: $portfolioMain-background-color-button-active;
       text-decoration: none;
     }
 
     &.active {
-      color: #61dafb;
+      color: $portfolioMain-color-button-active;
     }
   }
 }
@@ -63,6 +61,5 @@ li {
 // PROJECTS VIEW //
 
 .container {
-  padding: 10px;
   width: 100%;;
 }

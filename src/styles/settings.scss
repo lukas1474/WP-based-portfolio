@@ -1,1 +1,41 @@
+// GLOBAL //
 $base-padding: 24px;
+
+// COLORS //
+$background-color-layout: #282c34;
+$background-color-button: inherit;
+$background-color-button-active: #eee;
+$white: white;
+$light-blue: #61dafb;
+$black: black;
+
+// HEADER //
+$header-background-color: $background-color-layout;
+$header-color-link: $light-blue;
+$header-color-link-active: $light-blue;
+$header-text-color: $white;
+
+// FOOTER //
+$footer-background-color: $background-color-layout;
+$footer-text-color: $white;
+
+// PORTFOLIO MAIN //
+$portfolioMain-background-color: $white;
+$portfolioMain-background-color-categories: $white;
+$portfolioMain-text-color: $white;
+$portfolioMain-categories-background-color-button: $background-color-button;
+$portfolioMain-color-button-active: $light-blue;
+$portfolioMain-background-color-button-active: $background-color-button-active;
+
+// PROJECTS //
+$projects-color-link: $black;
+$projects-color-link-active: $black;
+$projects-color-title: $black;
+
+// PROJECT PAGE //
+$projectPage-background-color: $white;
+$projectPage-text-color: $white;
+$projectPage-background-color-button: $background-color-button;
+$projectPage-color-button-active: $light-blue;
+$projectPage-background-color-button-active: $background-color-button-active;
+$projectPage-text-color-categories: $light-blue;

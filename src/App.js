@@ -19,7 +19,7 @@ const App = () => (
       <MainLayout>
         <Switch>
           <Route exact path='/' component={PortfolioMain} />
-          <Route exact path='/project/:projectId' component={ProjectPage} />
+          <Route exact path='/:projectId' component={ProjectPage} />
         </Switch>
       </MainLayout>
     </BrowserRouter>

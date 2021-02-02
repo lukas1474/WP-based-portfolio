@@ -2,15 +2,12 @@
 @import '../../../styles/bootstrap.scss';
 
 .footer {
-  background-color: #282c34;
-  min-height: 5vh;
+  background-color: $footer-background-color;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: 25px;
+  color: $footer-text-color;
   text-align: center;
 }
-
-
