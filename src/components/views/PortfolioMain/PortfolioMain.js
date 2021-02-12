@@ -16,7 +16,7 @@ class PortfolioMain extends React.Component {
   }
 
   componentDidMount() {
-    fetch(API_URL + `categories`)
+    fetch(`${API_URL}categories`)
       .then(results => {
         return results.json();
       }).then(results => {
@@ -24,7 +24,7 @@ class PortfolioMain extends React.Component {
         apiCategory(results);
       })
 
-    fetch(API_URL + `posts?per_page=100`)
+    fetch(`${API_URL}posts?per_page=100`)
       .then(results => {
         return results.json();
       }).then(results => {
@@ -42,7 +42,6 @@ class PortfolioMain extends React.Component {
 
     const { categories, projects } = this.props;
     const { activeCategory } = this.state;
-    console.log(activeCategory);
 
     const cat = categories.mainCategory.concat(categories.data);
 
@@ -52,7 +51,7 @@ class PortfolioMain extends React.Component {
           <Row className={styles.panelBar}>
             <div className={styles.menu}>
               <ul className={styles.portfolioUl}>
-                {categories.data && cat.filter(item => item.id > 1 || item.id < 1)
+                {categories.data && cat.filter(item => item.id != 1)
                 .map(item => (
                   <li key={item.id} className={styles.portfolioLi}>
                     <button
