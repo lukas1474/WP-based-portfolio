@@ -9,7 +9,7 @@ export const getCategory = ({ categories }, itemId) => {
 
 const initialState = {
   mainCategory: [
-    { id: 1000, name: 'Wszystkie' },
+    { id: null, name: 'Wszystkie' },
   ],
 };
 

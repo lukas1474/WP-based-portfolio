@@ -27,13 +27,12 @@ class Projects extends React.Component {
                 <ul className={styles.projectsUl}>
                 {re && re
                 .filter(item => item == re[0])
-                .map(item => {
-                return (
+                .map(item => (
                   <li key={item.id}>
                     <img src={item} className={styles.logo} alt='zdj z projektu' />
                   </li>
                 )
-                })}
+                )}
               </ul>
               </div>
               {props => <ProjectPage {...props} key={this.props.id} re={this.props.title}/>}

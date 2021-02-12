@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import styles from './PortfolioMain.module.scss';
 
+import { API_URL } from '../../../config';
 import Projects from '../Projects/ProjectsContainer';
 import { Container, Row, Col } from 'react-bootstrap';
 
@@ -10,12 +11,12 @@ class PortfolioMain extends React.Component {
   constructor() {
     super();
     this.state = {
-      activeCategory: 1000,
+      activeCategory: null,
     }
   }
 
   componentDidMount() {
-    fetch(`https://duraj-wnetrza.pl/wp-json/wp/v2/categories`)
+    fetch(API_URL + `categories`)
       .then(results => {
         return results.json();
       }).then(results => {
@@ -23,7 +24,7 @@ class PortfolioMain extends React.Component {
         apiCategory(results);
       })
 
-    fetch('https://duraj-wnetrza.pl/wp-json/wp/v2/posts?per_page=100')
+    fetch(API_URL + `posts?per_page=100`)
       .then(results => {
         return results.json();
       }).then(results => {
@@ -41,6 +42,7 @@ class PortfolioMain extends React.Component {
 
     const { categories, projects } = this.props;
     const { activeCategory } = this.state;
+    console.log(activeCategory);
 
     const cat = categories.mainCategory.concat(categories.data);
 
@@ -50,7 +52,7 @@ class PortfolioMain extends React.Component {
           <Row className={styles.panelBar}>
             <div className={styles.menu}>
               <ul className={styles.portfolioUl}>
-                {categories.data && cat.filter(item => item.id > 1)
+                {categories.data && cat.filter(item => item.id > 1 || item.id < 1)
                 .map(item => (
                   <li key={item.id} className={styles.portfolioLi}>
                     <button
@@ -68,10 +70,7 @@ class PortfolioMain extends React.Component {
           </Row>
           <Container className={styles.container}>
             <Row>
-              {projects.data && projects.data.filter(item =>{
-                if(activeCategory === 1000)
-                return this.props.projects
-                return item.categories.includes(activeCategory)})
+              {projects.data && projects.data.filter(item => activeCategory === null || item.categories.includes(activeCategory))
                 .map(item => (
                   <Col xs={12} md={6} lg={4} key={item.id}>
                     <Projects {...item} />

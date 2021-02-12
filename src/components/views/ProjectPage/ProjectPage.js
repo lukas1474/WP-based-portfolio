@@ -43,7 +43,6 @@ class ProjectPage extends React.Component {
                       <img src={item} className={styles.logo} alt='zdj z projektu' />
                     </li>
                   ))}
-                  {console.log(re)}
               </ul>
             </Col>
           </Row>
