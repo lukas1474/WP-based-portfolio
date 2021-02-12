@@ -1,4 +1,7 @@
-import {combineReducers, createStore} from 'redux';
+import {combineReducers, createStore, applyMiddleware} from 'redux';
+import thunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
+
 import categoriesReducer from './categoriesRedux';
 import projectsReducer from './projectsRedux';
 
@@ -11,7 +14,9 @@ const combinedReducers = combineReducers(reducers);
 
 const store = createStore(
   combinedReducers,
-  window.__REDUX_DEVTOOLS_EXTENSION__()
+  composeWithDevTools(
+    applyMiddleware(thunk)
+  ),
 );
 
 export default store;

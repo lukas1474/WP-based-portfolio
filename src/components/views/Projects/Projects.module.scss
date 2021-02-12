@@ -1,16 +1,15 @@
 @import '../../../styles/settings.scss';
 @import '../../../styles/bootstrap.scss';
 
-// COMPONENT MAIN OPTIONS //
 // LINK //
 
 .link{
-  color:black;
+  color: $projects-color-link;
   text-decoration: none;
 
   &:hover,
   &.active {
-    color: black;
+    color: $projects-color-link-active;
     text-decoration: none;
   }
 }
@@ -19,24 +18,28 @@
 
 .projectWindow {
   position: relative;
-  height: 225px;
-  width: 225px;
-  background-color: lightgrey;
+  height: 300px;
+  width: 350px;
+  margin-bottom: 20px;
 }
 
 .logo {
-  height: 225px;
-  width: 225px;
+  display: flex;
+  height: 300px;
+  width: 350px;
+  padding: auto;
+  margin-left: -41px;
   pointer-events: none;
+  object-fit: cover;
 }
 
 .title {
   position: absolute;
   font-size: 22px;
-  color: black;
+  color: $projects-color-title;
   margin: auto;
   padding: auto;
   bottom: 8px;
-  width: 10em;
+  width: 100%;
   text-align: center;
 }

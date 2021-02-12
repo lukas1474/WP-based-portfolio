@@ -4,13 +4,13 @@
 // COMPONENT MAIN OPTIONS //
 
 .root {
-  background-color: white;
+  background-color: $projectPage-background-color;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: $projectPage-text-color;
   text-align: center;
   padding: 10px;
 }
@@ -23,7 +23,7 @@
 
 button {
   border: none;
-  background-color: inherit;
+  background-color: $projectPage-background-color-button;
   padding: 14px 28px;
   font-size: 20px;
   cursor: pointer;
@@ -32,27 +32,29 @@ button {
 
   &:hover,
   &.active {
-    color: #61dafb;
-    background: #eee;
+    color: $projectPage-color-button-active;
+    background: $projectPage-background-color-button-active;
     text-decoration: none;
   }
 
   &.active {
-    color: #61dafb;
+    color: $projectPage-color-button-active;
   }
 }
 
 .projectCategories {
   text-align: center;
-  margin: 10px;
-  color: black;
+  color: $projectPage-text-color-categories;
+}
+
+.categoryTitle {
+  margin: 0 10px 0 10px;
 }
 
 // VIEW //
 
 .title {
-  font-size: 22px;
-  color: aqua;
+  color: black;
 }
 
 .logo {
