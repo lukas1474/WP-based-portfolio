@@ -3,7 +3,7 @@ import { getAllProjects } from '../../../redux/projectsRedux';
 
 import Projects from './Projects';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   projects: getAllProjects(state),
 });
 

@@ -1,45 +1,52 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { Link } from 'react-router-dom';
 import styles from './Projects.module.scss';
 
 import ProjectPage from '../ProjectPage/ProjectPageContainer';
-import { Link } from 'react-router-dom';
 
 class Projects extends React.Component {
-
   render() {
-
-    const { id, title, content} = this.props;
+    const { id, title, content } = this.props;
 
     const string = content.rendered;
-    let re = string.match(/(?<=src=")(.*?)(?=")/gm);
+    const re = string.match(/(?<=src=")(.*?)(?=")/gm);
 
     return (
-      <div className={styles.root} >
-        <div className='container'>
+      <div className={styles.root}>
+        <div className="container">
           <div className={styles.as}>
             <Link to={`/${id}`} className={styles.link}>
               <div className={styles.projectWindow}>
-                <p className={styles.title}>
-                  {title.rendered}
-                </p>
+                <p className={styles.title}>{title.rendered}</p>
                 <ul className={styles.projectsUl}>
-                {re && re
-                .filter(item => item == re[0])
-                .map(item => (
-                  <li key={item.id}>
-                    <img src={item} className={styles.logo} alt='zdj z projektu' />
-                  </li>
-                )
-                )}
-              </ul>
+                  {re &&
+                    re
+                      // eslint-disable-next-line eqeqeq
+                      .filter((item) => item == re[0])
+                      .map((item) => (
+                        <li key={item.id}>
+                          <img
+                            src={item}
+                            className={styles.logo}
+                            alt="zdj z projektu"
+                          />
+                        </li>
+                      ))}
+                </ul>
               </div>
-              {props => <ProjectPage {...props} key={this.props.id} re={this.props.title}/>}
+              {(props) => (
+                <ProjectPage
+                  {...props}
+                  key={this.props.id}
+                  re={this.props.title}
+                />
+              )}
             </Link>
           </div>
         </div>
-      </div >
+      </div>
     );
   }
 }

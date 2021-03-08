@@ -8,11 +8,11 @@ export const getProjectById = ({projects}, projectId) => {
 
 const initialState = {};
 
-const reducerName = 'projects';
+const reducerName = `projects`;
 
 const createActionName = name => `app/${reducerName}/${name}`;
 
-const API_PROJECT = createActionName('API_PROJECT');
+const API_PROJECT = createActionName(`API_PROJECT`);
 
 export const apiProject = payload => ({payload: payload, type: API_PROJECT });
 

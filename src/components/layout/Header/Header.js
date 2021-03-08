@@ -3,9 +3,7 @@ import styles from './Header.module.scss';
 
 const Header = () => (
   <header className={styles.header}>
-    <p>
-      PORTFOLIO
-      </p>
+    <p>PORTFOLIO</p>
     <a
       className={styles.link}
       href='https://www.duraj-wnetrza.pl/'
